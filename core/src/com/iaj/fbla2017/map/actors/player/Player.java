@@ -11,4 +11,4 @@ package com.iaj.fbla2017.map.actors.player;
  */
 public class Player {
     
-}
+} 

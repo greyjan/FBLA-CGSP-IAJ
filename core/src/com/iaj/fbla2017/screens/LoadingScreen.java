@@ -2,8 +2,11 @@ package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.SandboxGame;
@@ -11,115 +14,125 @@ import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.LevelAssets;
 import com.iaj.fbla2017.assets.LevelAssets.ILoadListener;
 
+public class LoadingScreen implements Screen {
 
-public class LoadingScreen implements Screen{
+    final SandboxGame game;
 
-	final SandboxGame game;
-	
-	protected OrthographicCamera camera;
-	protected final Stage stage;
-	
-	Texture background;
-	
-	public interface ILoadingListener {
-		public void OnFinished();
-	}
-	
-	private ILoadingListener loadingListener;
-	private ILoadListener loadListener;
-	
-	private LevelAssets assets = Assets.GetInstance();
-	
-	
-	public LoadingScreen(SandboxGame game) {
-		
-		//
-		this.game = game;
-		
-		//
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		
-		//
-		stage = new Stage(new ScreenViewport());
-		
-		//
-		
-		//
-		
-		loadListener = new ILoadListener() {
+    protected BitmapFont font;
+    protected SpriteBatch batch;
 
-			@Override
-			public void OnBegin() {
-				
-			}
+    protected OrthographicCamera camera;
+    protected final Stage stage;
 
-			@Override
-			public void OnLoading(float value) {
-				
-			}
+    Texture background;
 
-			@Override
-			public void OnFinished() {
-				assets.removeLoadListener(loadListener);
-				loadListener = null;
-				
-				if(loadingListener != null) {
-					loadingListener.OnFinished();
-				}
-			}
-			
-		};
-		
-		
-		assets.addLoadListener(loadListener);
-		
-		//
-		
-		
-	}
-	
-	@Override
-	public void show() {
-		
-	}
+    public interface ILoadingListener {
 
-	@Override
-	public void render(float delta) {
-		
-		assets.update();
-		
-		stage.act(delta);
-		stage.draw();
-	}
+        public void OnFinished();
+    }
 
-	@Override
-	public void resize(int width, int height) {
-		
-	}
+    private ILoadingListener loadingListener;
+    private ILoadListener loadListener;
 
-	@Override
-	public void pause() {
-		
-	}
+    private LevelAssets assets = Assets.GetInstance();
 
-	@Override
-	public void resume() {
-		
-	}
+    public LoadingScreen(SandboxGame game) {
 
-	@Override
-	public void hide() {
-		
-	}
+        //
+        this.game = game;
 
-	public void setILoadingListener(ILoadingListener loadingListener) {
-		this.loadingListener = loadingListener;
-	}
-	
-	@Override
-	public void dispose() {
-		stage.dispose();
-	}
+        //
+        camera = new OrthographicCamera();
+        //camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        //
+        stage = new Stage(new ScreenViewport());
+
+        //
+        font = new BitmapFont();
+        font.setColor(Color.BLACK);
+        font.getData().setScale(2);
+        batch = new SpriteBatch();
+        //
+
+        loadListener = new ILoadListener() {
+
+            @Override
+            public void OnBegin() {
+
+            }
+
+            @Override
+            public void OnLoading(float value) {
+
+            }
+
+            @Override
+            public void OnFinished() {
+                assets.removeLoadListener(loadListener);
+                loadListener = null;
+
+                if (loadingListener != null) {
+                    loadingListener.OnFinished();
+                }
+            }
+
+        };
+
+        assets.addLoadListener(loadListener);
+
+        //
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+
+        assets.update();
+
+        stage.act(delta);
+        stage.draw();
+
+        batch.begin();
+        batch.setColor(Color.BLACK);
+
+        font.draw(batch, "Loading...", Gdx.graphics.getWidth() / 2 - 40, Gdx.graphics.getHeight() / 2 + font.getCapHeight() / 2);
+        batch.end();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height);
+        camera.viewportWidth = width;
+        camera.viewportHeight = height;
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    public void setILoadingListener(ILoadingListener loadingListener) {
+        this.loadingListener = loadingListener;
+    }
+
+    @Override
+    public void dispose() {
+        stage.dispose();
+    }
 
 }

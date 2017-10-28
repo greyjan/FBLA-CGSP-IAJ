@@ -7,6 +7,9 @@ import com.iaj.fbla2017.SandboxGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+                //config.fullscreen = true;
+                config.width = 800;
+                config.height = 600;
 		new LwjglApplication(new SandboxGame(), config);
 	}
 }
