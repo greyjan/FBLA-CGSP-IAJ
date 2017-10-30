@@ -23,7 +23,7 @@ public class Assets extends LevelAssets {
 	
 	private Assets() {
 		addAsset("badlogic.jpg", Texture.class);
-                
+                addAsset("player/person.png",Texture.class);
 		/*
 		Texture.class
 		Sound.class

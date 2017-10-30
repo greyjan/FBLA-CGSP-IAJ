@@ -1,6 +1,7 @@
 package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -102,8 +103,16 @@ public class LoadingScreen implements Screen {
 
         font.draw(batch, "Loading...", Gdx.graphics.getWidth() / 2 - 40, Gdx.graphics.getHeight() / 2 + font.getCapHeight() / 2);
         batch.end();
+        
+        input();
     }
 
+    private void input() {
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            game.setScreen(game.cCScreen);
+        }
+    }
+    
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height);

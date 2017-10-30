@@ -3,15 +3,24 @@ package com.iaj.fbla2017;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.iaj.fbla2017.screens.CharacterCustomizationScreen;
 import com.iaj.fbla2017.screens.LoadingScreen;
+import com.iaj.fbla2017.screens.LoadingScreen.ILoadingListener;
 
 public class SandboxGame extends Game {
 
     LoadingScreen loadingScreen;
+    public CharacterCustomizationScreen cCScreen;
 
     @Override
     public void create() {
         LoadingScreen loading = new LoadingScreen(this);
+        loading.setILoadingListener(new ILoadingListener() {
+            @Override
+            public void OnFinished() {
+                cCScreen = new CharacterCustomizationScreen(SandboxGame.this);
+            }
+        });
         this.setScreen(loading);
     }
 
