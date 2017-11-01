@@ -1,0 +1,40 @@
+
+studentSkin.png
+size: 128,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+paper
+  rotate: false
+  xy: 2, 2
+  size: 62, 15
+  orig: 62, 15
+  offset: 0, 0
+  index: -1
+paperHeader
+  rotate: false
+  xy: 2, 19
+  size: 62, 31
+  split: 46, 15, 17, 13
+  pad: 36, 4, 10, 1
+  orig: 62, 31
+  offset: 0, 0
+  index: -1
+stickynote
+  rotate: false
+  xy: 66, 22
+  size: 28, 28
+  split: 12, 14, 12, 14
+  pad: 14, 12, 14, 12
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+stickynoteHover
+  rotate: false
+  xy: 96, 22
+  size: 28, 28
+  split: 12, 14, 12, 14
+  pad: 14, 12, 14, 12
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
