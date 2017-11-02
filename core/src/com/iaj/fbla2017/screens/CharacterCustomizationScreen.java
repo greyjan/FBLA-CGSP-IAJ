@@ -85,7 +85,7 @@ public class CharacterCustomizationScreen implements Screen {
 
         //camera
         //setCamera
-        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
+        //((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
         //TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
         //stage.getViewport().getCamera().position.set(0, 0, 0);
         stage.getViewport().getCamera().update();

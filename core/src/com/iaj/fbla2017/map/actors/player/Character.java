@@ -5,16 +5,55 @@
  */
 package com.iaj.fbla2017.map.actors.player;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.iaj.fbla2017.map.utils.IsometricActor;
+import java.util.Random;
+
 /**
  *
  * @author Jan Fic
  */
-public class Character{
-    /** Fields
-     * Jawline
-     * Hair
-     * Clothes
-     * Inventory
-     * Body
-     */
-} 
+public class Character extends IsometricActor {
+
+    Sprite sprite;
+
+    enum Gender {
+        male, female
+    }
+
+    enum JawType {
+        pointed, round, square, wide
+    }
+
+    enum EyeType {
+        wide, normal, small
+    }
+    
+    enum HairStyle {
+        
+    }
+
+    Color eyeColor;
+    Color skinColor;
+
+    Gender gender;
+    JawType jawType;
+    EyeType eyes;
+    HairStyle hair;
+
+    public Character(int l) {
+        super(l);
+        sprite = new Sprite();
+        Random rand = new Random();
+        gender = Gender.values()[rand.nextInt(Gender.values().length)];
+        jawType = JawType.values()[rand.nextInt(JawType.values().length)];
+        eyes = EyeType.values()[rand.nextInt(EyeType.values().length)];
+        buildSprite();
+    }
+
+    private void buildSprite() {
+        
+    }
+
+}
