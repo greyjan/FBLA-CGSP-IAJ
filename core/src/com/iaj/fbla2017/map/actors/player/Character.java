@@ -25,10 +25,6 @@ public class Character extends IsometricActor {
     enum JawType {
         pointed, round, square, wide
     }
-
-    enum EyeType {
-        wide, normal, small
-    }
     
     enum HairStyle {
         
@@ -39,7 +35,6 @@ public class Character extends IsometricActor {
 
     Gender gender;
     JawType jawType;
-    EyeType eyes;
     HairStyle hair;
 
     public Character(int l) {
@@ -48,7 +43,6 @@ public class Character extends IsometricActor {
         Random rand = new Random();
         gender = Gender.values()[rand.nextInt(Gender.values().length)];
         jawType = JawType.values()[rand.nextInt(JawType.values().length)];
-        eyes = EyeType.values()[rand.nextInt(EyeType.values().length)];
         buildSprite();
     }
 
