@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.map.utils.IsometricTiledMapRendererWithSprites;
+import com.iaj.fbla2017.map.actors.player.Character;
 
 /**
  *
@@ -32,8 +33,8 @@ public class CharacterCustomizationScreen implements Screen {
     private final IsometricTiledMapRendererWithSprites mapRenderer;
     private final SpriteBatch batch;
     private final Game game;
-    PlayerTest test;
     Texture paperTexture;
+    Character[] c;
 
     class Paper extends Actor {
 
@@ -42,7 +43,7 @@ public class CharacterCustomizationScreen implements Screen {
         public Paper() {
             texture = (Texture) Assets.GetInstance().get("skin/paper.png");
             texture.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.Repeat);
-            this.setBounds(0, 0, texture.getWidth(), texture.getWidth() );
+            this.setBounds(0, 0, texture.getWidth(), texture.getWidth());
         }
 
         @Override
@@ -61,6 +62,12 @@ public class CharacterCustomizationScreen implements Screen {
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         map = new TiledMap();
+        c = new Character[3];
+        for (int i = 0; i < c.length; i++) {
+            c[i] = new Character(0);
+            c[i].setPosition(stage.getWidth() / 2 + i * 40, stage.getHeight() / 2);
+            stage.addActor(c[i]);
+        }
 
         paperTexture = (Texture) Assets.GetInstance().get("skin/paper.png");
         paperTexture.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.Repeat);
@@ -70,11 +77,7 @@ public class CharacterCustomizationScreen implements Screen {
         paper.setWidth(stage.getWidth());
         paper.setHeight(stage.getHeight());
         //paper.setPosition(10, 10);
-        stage.addActor(paper);
-        //debug
-        test = new PlayerTest();
-        test.setPosition(stage.getWidth()/2, stage.getHeight()/2);
-        stage.addActor(test);
+        //stage.addActor(paper);
 
         //map creation
         //
@@ -85,7 +88,7 @@ public class CharacterCustomizationScreen implements Screen {
 
         //camera
         //setCamera
-        //((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
+        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 0.5f;
         //TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
         //stage.getViewport().getCamera().position.set(0, 0, 0);
         stage.getViewport().getCamera().update();
@@ -114,7 +117,9 @@ public class CharacterCustomizationScreen implements Screen {
         Color c = new Color(Gdx.input.getX() / stage.getWidth(), Gdx.input.getY() / stage.getHeight(), 0.5f, 1);
 
         //test.setColor(new Color().fromHsv((float) (Math.random() * 360), 0.5f, 0.5f));
-        test.setColor(c);
+        for (int i = 0; i < this.c.length; i++) {
+            this.c[i].setColor(c);
+        }
         //System.out.println(test.+getColor());
 
     }
@@ -138,24 +143,5 @@ public class CharacterCustomizationScreen implements Screen {
 
     @Override
     public void dispose() {
-    }
-
-    class PlayerTest extends Actor {
-
-        Sprite sprite;
-
-        public PlayerTest() {
-            sprite = new Sprite((Texture) Assets.GetInstance().get("player/person.png"));
-            this.setBounds(0, 0, sprite.getWidth(), sprite.getHeight());
-        }
-
-        @Override
-        public void draw(Batch batch, float parentAlpha) {
-            Color c = getColor();
-            batch.setColor(c.r, c.g, c.b, c.a);
-            // batch.draw(sprite, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHieght(), parentAlpha, parentAlpha, parentAlpha);
-            batch.draw(sprite, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
-        }
-
     }
 }

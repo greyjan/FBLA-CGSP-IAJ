@@ -1,12 +1,13 @@
-/*******************************************************
+/** *****************************************************
  * Copyright (C) 2015 Mirco Timmermann - All Rights Reserved
- * 
+ *
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  * Written by Mirco Timmermann <mtimmermann@gmx.de>, December 2016
- * 
+ *
  * game file
- *******************************************************/
+ ******************************************************
+ */
 package com.iaj.fbla2017.assets;
 
 import com.badlogic.gdx.graphics.Texture;
@@ -19,16 +20,27 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * to have one loading screen on the start on smaller games)
  */
 public class Assets extends LevelAssets {
-	private static Assets INSTANCE = null;
-	
-	
-	private Assets() {
-		addAsset("badlogic.jpg", Texture.class);
-                addAsset("player/person.png",Texture.class);
-                addAsset("skin/paper.png",Texture.class);
-                //addAsset("skin/studentSkin.png",Texture.class);
-                addAsset("skin/studentSkin.atlas",TextureAtlas.class);
-		/*
+
+    private static Assets INSTANCE = null;
+
+    private Assets() {
+        addAsset("badlogic.jpg", Texture.class);
+        addAsset("player/person.png", Texture.class);
+        addAsset("skin/paper.png", Texture.class);
+        //addAsset("skin/studentSkin.png",Texture.class);
+        addAsset("skin/studentSkin.atlas", TextureAtlas.class);
+        addAsset("packs/character.atlas", TextureAtlas.class);
+        addAsset("character/head/round.png", Texture.class);
+        addAsset("character/head/pointed.png", Texture.class);
+        addAsset("character/head/square.png", Texture.class);
+        addAsset("character/head/wide.png", Texture.class);
+        addAsset("character/leg/female.png", Texture.class);
+        addAsset("character/leg/male.png", Texture.class);
+        addAsset("character/torso/female.png", Texture.class);
+        addAsset("character/torso/male.png", Texture.class);
+        addAsset("character/arm/left.png", Texture.class);
+        addAsset("character/arm/right.png", Texture.class);
+        /*
 		Texture.class
 		Sound.class
 		Music.class
@@ -38,20 +50,20 @@ public class Assets extends LevelAssets {
 		Skin.class
 		TiledMap.class
 		ShaderProgram.class
-		*/
-	}
-	
-	public static Assets GetInstance() {
-		if(INSTANCE == null) {
-			INSTANCE = new Assets();
-		}
-		return INSTANCE;
-	}
-	
-	@Override
-	public void dispose() {
-		super.dispose();
-		
-		INSTANCE = null;
-	}
+         */
+    }
+
+    public static Assets GetInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Assets();
+        }
+        return INSTANCE;
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+
+        INSTANCE = null;
+    }
 }

@@ -20,6 +20,7 @@ public class SandboxGame extends Game {
             @Override
             public void OnFinished() {
                 cCScreen = new CharacterCustomizationScreen(SandboxGame.this);
+                SandboxGame.this.setScreen(cCScreen);
             }
         });
         this.setScreen(loading);
