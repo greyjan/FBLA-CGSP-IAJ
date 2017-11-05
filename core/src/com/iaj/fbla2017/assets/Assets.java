@@ -12,6 +12,7 @@ package com.iaj.fbla2017.assets;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 /*
  * singleton for assets on loading. 
@@ -24,12 +25,16 @@ public class Assets extends LevelAssets {
     private static Assets INSTANCE = null;
 
     private Assets() {
-        addAsset("badlogic.jpg", Texture.class);
+        
         addAsset("player/person.png", Texture.class);
         addAsset("skin/paper.png", Texture.class);
-        //addAsset("skin/studentSkin.png",Texture.class);
         addAsset("skin/studentSkin.atlas", TextureAtlas.class);
+        
+        
         addAsset("packs/character.atlas", TextureAtlas.class);
+        
+        //character 
+            //body
         addAsset("character/head/round.png", Texture.class);
         addAsset("character/head/pointed.png", Texture.class);
         addAsset("character/head/square.png", Texture.class);
@@ -40,6 +45,11 @@ public class Assets extends LevelAssets {
         addAsset("character/torso/male.png", Texture.class);
         addAsset("character/arm/left.png", Texture.class);
         addAsset("character/arm/right.png", Texture.class);
+        
+        //UISkin
+        addAsset("skin/composed/skin.json",Skin.class);
+        //addAsset("skin/",Texture.class);
+        
         /*
 		Texture.class
 		Sound.class

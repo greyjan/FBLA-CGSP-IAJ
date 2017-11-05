@@ -1,0 +1,75 @@
+
+skin.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bradleyHand12pxBold_0
+  rotate: false
+  xy: 259, 548
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bradleyHand12px_0
+  rotate: false
+  xy: 1, 290
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bradleyHand16pxBold_0
+  rotate: false
+  xy: 1, 32
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bradleyHand16px_0
+  rotate: false
+  xy: 1, 548
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bradleyHand32pxBold_0
+  rotate: false
+  xy: 517, 548
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bradleyHand32px_0
+  rotate: false
+  xy: 259, 290
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+stickynote
+  rotate: false
+  xy: 1, 1
+  size: 29, 29
+  split: 12, 15, 12, 15
+  pad: 14, 13, 14, 13
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+stickynoteDown
+  rotate: false
+  xy: 517, 517
+  size: 29, 29
+  split: 12, 15, 12, 15
+  pad: 14, 13, 14, 13
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+stickynoteOver
+  rotate: false
+  xy: 259, 259
+  size: 29, 29
+  split: 12, 15, 12, 15
+  pad: 14, 13, 14, 13
+  orig: 29, 29
+  offset: 0, 0
+  index: -1

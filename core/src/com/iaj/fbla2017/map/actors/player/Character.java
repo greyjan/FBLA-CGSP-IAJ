@@ -62,7 +62,6 @@ public class Character extends IsometricActor {
         Random rand = new Random();
         
         gender = Gender.values()[rand.nextInt(Gender.values().length)]; 
-        
         headShape = HeadShape.values()[rand.nextInt(HeadShape.values().length)];
     }
 

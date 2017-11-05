@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -62,10 +61,10 @@ public class CharacterCustomizationScreen implements Screen {
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         map = new TiledMap();
-        c = new Character[3];
+        c = new Character[10];
         for (int i = 0; i < c.length; i++) {
             c[i] = new Character(0);
-            c[i].setPosition(stage.getWidth() / 2 + i * 40, stage.getHeight() / 2);
+            c[i].setPosition(stage.getWidth() / 2 - 50 + i * 40, stage.getHeight() / 2);
             stage.addActor(c[i]);
         }
 
@@ -88,7 +87,7 @@ public class CharacterCustomizationScreen implements Screen {
 
         //camera
         //setCamera
-        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 0.5f;
+        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
         //TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
         //stage.getViewport().getCamera().position.set(0, 0, 0);
         stage.getViewport().getCamera().update();

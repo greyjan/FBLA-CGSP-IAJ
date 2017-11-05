@@ -1,10 +1,8 @@
 package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -22,7 +20,6 @@ public class LoadingScreen implements Screen {
     protected BitmapFont font;
     protected SpriteBatch batch;
 
-    protected OrthographicCamera camera;
     protected final Stage stage;
 
     Texture background;
@@ -39,22 +36,14 @@ public class LoadingScreen implements Screen {
 
     public LoadingScreen(SandboxGame game) {
 
-        //
         this.game = game;
 
-        //
-        camera = new OrthographicCamera();
-        //camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-        //
         stage = new Stage(new ScreenViewport());
 
-        //
         font = new BitmapFont();
         font.setColor(Color.BLACK);
         font.getData().setScale(2);
         batch = new SpriteBatch();
-        //
 
         loadListener = new ILoadListener() {
 
@@ -81,8 +70,6 @@ public class LoadingScreen implements Screen {
         };
 
         assets.addLoadListener(loadListener);
-
-        //
     }
 
     @Override
@@ -108,8 +95,6 @@ public class LoadingScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height);
-        camera.viewportWidth = width;
-        camera.viewportHeight = height;
     }
 
     @Override
