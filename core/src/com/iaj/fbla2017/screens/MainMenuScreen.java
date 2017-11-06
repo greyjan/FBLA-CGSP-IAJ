@@ -18,11 +18,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin;
-import com.iaj.fbla2017.assets.UISkin.NotebookLabel;
+import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
 
 /**
  *
@@ -38,6 +39,7 @@ public class MainMenuScreen implements Screen {
     Table table;
     TextButton test;
     Label title;
+    NotebookPaperTable menu;
     Skin skin;
 
     public MainMenuScreen(Game g) {
@@ -49,16 +51,13 @@ public class MainMenuScreen implements Screen {
         table = new Table();
         table.setFillParent(true);
 
+        //menu
+        menu = new NotebookPaperTable();
         //title
         title = new Label("Main Menu", skin, "title");
-        table.add(title);
-
-        table.row().height(100);
-        table.row();
-        table.row();
-
-        //test button
-        test = new TextButton("this is a stickynoteTextButton \n and this is another line \n words", skin);
+        
+        //button test
+        test = new TextButton("Play",skin);
         test.addListener(new InputListener() {
 
             @Override
@@ -74,11 +73,18 @@ public class MainMenuScreen implements Screen {
                 }
             }
         });
-        table.add(test);
-
-//        UISkin.NotebookLabel label = new NotebookLabel("hello my name is jan \n and i am programming", skin, "default");
-//        label.setColor(Color.WHITE);
-//        table.add(label);
+        
+        
+        //some text
+        Label text = new Label("This is some text cause like \n ... why not. \n i hope the alignment is good. \n probs not tho",skin);
+        //menu.add(title).colspan(3);
+        menu.row();
+        menu.add(text);
+        menu.row();
+        menu.add(test);
+        //menu.setDebug(true);
+        
+        table.add(menu);
 
         stage.addActor(table);
         //stage.setDebugAll(true);
@@ -96,8 +102,8 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        //Gdx.gl.glClearColor(0, 0, 0, 1);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(delta);
         stage.draw();
     }

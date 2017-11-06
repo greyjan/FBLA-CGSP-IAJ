@@ -27,11 +27,15 @@ public class Assets extends LevelAssets {
     private Assets() {
         
         addAsset("player/person.png", Texture.class);
-        addAsset("skin/paper.png", Texture.class);
+       
         addAsset("skin/studentSkin.atlas", TextureAtlas.class);
         
         
         addAsset("packs/character.atlas", TextureAtlas.class);
+        
+        //paper
+        addAsset("skin/paper.png", Texture.class);
+        addAsset("skin/paperMargin.png", Texture.class);
         
         //character 
             //body
