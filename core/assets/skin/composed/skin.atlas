@@ -6,49 +6,91 @@ filter: Nearest,Nearest
 repeat: none
 bradleyHand12pxBold_0
   rotate: false
-  xy: 259, 548
+  xy: 259, 553
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand12px_0
   rotate: false
-  xy: 1, 290
+  xy: 1, 295
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand16pxBold_0
   rotate: false
-  xy: 1, 32
+  xy: 1, 37
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand16px_0
   rotate: false
-  xy: 1, 548
+  xy: 1, 553
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand32pxBold_0
   rotate: false
-  xy: 517, 548
+  xy: 517, 553
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand32px_0
   rotate: false
-  xy: 259, 290
+  xy: 259, 295
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-stickynote
+progressBar
+  rotate: false
+  xy: 1, 19
+  size: 32, 16
+  split: 16, 15, 6, 9
+  pad: 4, 4, 3, 2
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+progressBarFilled
+  rotate: false
+  xy: 35, 25
+  size: 13, 10
+  split: 6, 6, 5, 4
+  orig: 13, 10
+  offset: 0, 0
+  index: -1
+sliderBar
   rotate: false
   xy: 1, 1
+  size: 16, 16
+  split: 8, 7, 7, 8
+  pad: 8, 7, 8, 7
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+sliderBarFill
+  rotate: false
+  xy: 259, 252
+  size: 10, 10
+  split: 5, 4, 4, 5
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+sliderBarKnob
+  rotate: false
+  xy: 290, 283
+  size: 10, 10
+  split: 5, 4, 4, 5
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+stickynote
+  rotate: false
+  xy: 259, 264
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13
@@ -57,7 +99,7 @@ stickynote
   index: -1
 stickynoteDown
   rotate: false
-  xy: 517, 517
+  xy: 775, 780
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13
@@ -66,7 +108,7 @@ stickynoteDown
   index: -1
 stickynoteOver
   rotate: false
-  xy: 259, 259
+  xy: 517, 522
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13

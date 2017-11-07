@@ -119,6 +119,71 @@ atlasData: {
 			tintName: null
 			name: bradleyHand32pxBold_0
 		}
+		{
+			file: E:/dev/common/studentSkin/progressBarFilled.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: progressBarFilled
+		}
+		{
+			file: E:/dev/common/studentSkin/progressBar.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: progressBar
+		}
+		{
+			file: E:/dev/common/studentSkin/sliderBar.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: sliderBar
+		}
+		{
+			file: E:/dev/common/studentSkin/sliderBarFill.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: sliderBarFill
+		}
+		{
+			file: E:/dev/common/studentSkin/sliderBarKnob.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: sliderBarKnob
+		}
 	]
 }
 jsonData: {
@@ -800,7 +865,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: bradleyHand32px
+						value: bradleyHand32pxBold
 					}
 					fontColor: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -876,7 +941,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: progressBar
 					}
 					disabledBackground: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -904,7 +969,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knobBefore
 						optional: true
-						value: null
+						value: progressBarFilled
 					}
 					knobAfter: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -940,7 +1005,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: progressBar
 					}
 					disabledBackground: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1145,7 +1210,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: sliderBar
 					}
 					disabledBackground: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1159,7 +1224,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knob
 						optional: true
-						value: null
+						value: sliderBarKnob
 					}
 					disabledKnob: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1173,7 +1238,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knobBefore
 						optional: true
-						value: null
+						value: sliderBarFill
 					}
 					knobAfter: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1223,7 +1288,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: sliderBar
 					}
 					disabledBackground: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1237,7 +1302,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knob
 						optional: true
-						value: null
+						value: sliderBarKnob
 					}
 					disabledKnob: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1251,7 +1316,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knobBefore
 						optional: true
-						value: null
+						value: sliderBarFill
 					}
 					knobAfter: {
 						class: com.ray3k.skincomposer.data.StyleProperty

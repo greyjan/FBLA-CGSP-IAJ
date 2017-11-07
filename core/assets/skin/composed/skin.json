@@ -40,8 +40,29 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 		fontColor: RGBA_0_0_0_255
 	}
 	title: {
-		font: bradleyHand32px
+		font: bradleyHand32pxBold
 		fontColor: RGBA_0_0_0_255
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
+	default-horizontal: {
+		background: progressBar
+		knobBefore: progressBarFilled
+	}
+	default-vertical: {
+		background: progressBar
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
+	default-horizontal: {
+		background: sliderBar
+		knob: sliderBarKnob
+		knobBefore: sliderBarFill
+	}
+	default-vertical: {
+		background: sliderBar
+		knob: sliderBarKnob
+		knobBefore: sliderBarFill
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
