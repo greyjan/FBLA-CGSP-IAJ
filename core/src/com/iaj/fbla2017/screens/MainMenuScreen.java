@@ -76,7 +76,7 @@ public class MainMenuScreen implements Screen {
         
         
         //some text
-        Label text = new Label("This is some text cause like \n ... why not. \n i hope the alignment is good. \n probs not tho",skin);
+        Label text = new Label("Thistftftftftftftft is some text cause like \n ... why not. \n i hope the alignment is good. \n probs not tho",skin);
         //menu.add(title).colspan(3);
         menu.row();
         menu.add(text);
