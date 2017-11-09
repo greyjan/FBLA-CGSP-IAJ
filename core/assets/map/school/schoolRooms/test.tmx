@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.2" orientation="isometric" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="16" nextobjectid="337">
+<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="16" nextobjectid="360">
  <tileset firstgid="1" source="tileSet.tsx"/>
- <tileset firstgid="53" source="tileSet.tsx"/>
  <tileset firstgid="53" source="../../tileSet/schoolFurniture.tsx"/>
  <layer name="Tile Layer 1" width="16" height="16">
   <data encoding="csv">
@@ -24,11 +23,22 @@
 </data>
  </layer>
  <objectgroup name="objects" offsetx="0" offsety="-48">
-  <object id="30" gid="4" x="96" y="96" width="32" height="32"/>
-  <object id="330" gid="54" x="160" y="128" width="32" height="32"/>
-  <object id="331" gid="53" x="160" y="144" width="32" height="32"/>
-  <object id="334" gid="54" x="192" y="128" width="32" height="32"/>
-  <object id="335" gid="53" x="192" y="144" width="32" height="32"/>
+  <object id="330" gid="54" x="128" y="112" width="32" height="32"/>
+  <object id="331" gid="53" x="128" y="128" width="32" height="32"/>
+  <object id="334" gid="54" x="176" y="112" width="32" height="32"/>
+  <object id="335" gid="53" x="176" y="128" width="32" height="32"/>
+  <object id="337" gid="53" x="128" y="208" width="32" height="32"/>
+  <object id="341" gid="54" x="128" y="192" width="32" height="32"/>
+  <object id="342" gid="53" x="176" y="208" width="32" height="32"/>
+  <object id="343" gid="54" x="176" y="192" width="32" height="32"/>
+  <object id="344" gid="53" x="224" y="128" width="32" height="32"/>
+  <object id="345" gid="54" x="224" y="112" width="32" height="32"/>
+  <object id="346" gid="53" x="272" y="128" width="32" height="32"/>
+  <object id="347" gid="54" x="272" y="112" width="32" height="32"/>
+  <object id="356" gid="53" x="224" y="208" width="32" height="32"/>
+  <object id="357" gid="54" x="224" y="192" width="32" height="32"/>
+  <object id="358" gid="53" x="272" y="208" width="32" height="32"/>
+  <object id="359" gid="54" x="272" y="192" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="wall">
   <object id="44" gid="40" x="0" y="0" width="32" height="32"/>

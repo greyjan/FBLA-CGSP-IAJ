@@ -9,10 +9,12 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import java.util.Iterator;
 
 /**
  *
@@ -29,9 +31,14 @@ public class BasicRoomScreen implements Screen {
     public BasicRoomScreen(Game g) {
         this.game = g;
         batch = new SpriteBatch();
+        stage = new Stage();
 
         map = new TmxMapLoader().load("map/school/schoolRooms/test.tmx");
         mapRenderer = new IsometricTiledMapRenderer(map);
+        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
+        //TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
+        stage.getViewport().getCamera().position.set(0, 0, 0);
+        stage.getViewport().getCamera().update();
     }
 
     @Override
@@ -45,6 +52,11 @@ public class BasicRoomScreen implements Screen {
 
         mapRenderer.setView((OrthographicCamera) stage.getViewport().getCamera());
         mapRenderer.render();
+        Iterator<MapLayer> iterator = map.getLayers().iterator();
+        while(iterator.hasNext()) {
+            MapLayer l = iterator.next();
+            mapRenderer.renderObjects(l);
+        }
     }
 
     @Override
