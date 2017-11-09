@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="16" nextobjectid="337">
+<map version="1.0" tiledversion="1.0.2" orientation="isometric" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="16" nextobjectid="337">
  <tileset firstgid="1" source="tileSet.tsx"/>
  <tileset firstgid="53" source="tileSet.tsx"/>
- <tileset firstgid="105" source="schoolFurniture.tsx"/>
+ <tileset firstgid="53" source="../../tileSet/schoolFurniture.tsx"/>
  <layer name="Tile Layer 1" width="16" height="16">
   <data encoding="csv">
 40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
@@ -25,10 +25,10 @@
  </layer>
  <objectgroup name="objects" offsetx="0" offsety="-48">
   <object id="30" gid="4" x="96" y="96" width="32" height="32"/>
-  <object id="330" gid="106" x="160" y="128" width="32" height="32"/>
-  <object id="331" gid="105" x="160" y="144" width="32" height="32"/>
-  <object id="334" gid="106" x="192" y="128" width="32" height="32"/>
-  <object id="335" gid="105" x="192" y="144" width="32" height="32"/>
+  <object id="330" gid="54" x="160" y="128" width="32" height="32"/>
+  <object id="331" gid="53" x="160" y="144" width="32" height="32"/>
+  <object id="334" gid="54" x="192" y="128" width="32" height="32"/>
+  <object id="335" gid="53" x="192" y="144" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="wall">
   <object id="44" gid="40" x="0" y="0" width="32" height="32"/>

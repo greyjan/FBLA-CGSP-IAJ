@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
+import com.iaj.fbla2017.screens.BasicRoomScreen;
 import com.iaj.fbla2017.screens.CharacterCustomizationScreen;
 import com.iaj.fbla2017.screens.LoadingScreen;
 import com.iaj.fbla2017.screens.LoadingScreen.ILoadingListener;
@@ -14,6 +15,7 @@ public class SandboxGame extends Game {
     LoadingScreen loadingScreen;
     public CharacterCustomizationScreen cCScreen;
     public MainMenuScreen mmScreen;
+    public BasicRoomScreen brScreen;
 
     @Override
     public void create() {
@@ -23,6 +25,7 @@ public class SandboxGame extends Game {
             public void OnFinished() {
                 cCScreen = new CharacterCustomizationScreen(SandboxGame.this);
                 mmScreen = new MainMenuScreen(SandboxGame.this);
+                brScreen = new BasicRoomScreen(SandboxGame.this);
                 SandboxGame.this.setScreen(mmScreen);
             }
         });

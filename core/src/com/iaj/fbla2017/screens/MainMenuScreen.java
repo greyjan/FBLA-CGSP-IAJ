@@ -68,7 +68,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if (test.isOver()) {
-                    game.setScreen(((SandboxGame) game).cCScreen);
+                    game.setScreen(((SandboxGame) game).brScreen);
 
                 }
             }

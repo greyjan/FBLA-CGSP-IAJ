@@ -11,7 +11,7 @@
 package com.iaj.fbla2017.assets;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 /*
@@ -27,11 +27,6 @@ public class Assets extends LevelAssets {
     private Assets() {
         
         addAsset("player/person.png", Texture.class);
-       
-        addAsset("skin/studentSkin.atlas", TextureAtlas.class);
-        
-        
-        addAsset("packs/character.atlas", TextureAtlas.class);
         
         //paper
         addAsset("skin/paper.png", Texture.class);
@@ -53,6 +48,9 @@ public class Assets extends LevelAssets {
         //UISkin
         addAsset("skin/composed/skin.json",Skin.class);
         //addAsset("skin/",Texture.class);
+        
+        //maps
+        //addAsset("map/school/schoolRooms/test.tmx",TiledMap.class);
         
         /*
 		Texture.class
