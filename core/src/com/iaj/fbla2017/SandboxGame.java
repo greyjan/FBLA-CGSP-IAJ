@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.iaj.fbla2017.screens.BasicRoomScreen;
 import com.iaj.fbla2017.screens.CharacterCustomizationScreen;
 import com.iaj.fbla2017.screens.LoadingScreen;
@@ -35,10 +36,12 @@ public class SandboxGame extends Game {
     @Override
     public void render() {
         Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT);
         super.render();
-        if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             Gdx.app.exit();
+        }
     }
 
     @Override

@@ -7,14 +7,16 @@ package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import java.util.Iterator;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.iaj.fbla2017.map.utils.Room;
 
 /**
  *
@@ -22,23 +24,25 @@ import java.util.Iterator;
  */
 public class BasicRoomScreen implements Screen {
 
-    Stage stage;
+    Room room;
     TiledMap map;
     private final IsometricTiledMapRenderer mapRenderer;
     private final SpriteBatch batch;
     private final Game game;
+    ShapeRenderer sr;
 
     public BasicRoomScreen(Game g) {
         this.game = g;
+        sr = new ShapeRenderer();
         batch = new SpriteBatch();
-        stage = new Stage();
 
         map = new TmxMapLoader().load("map/school/schoolRooms/test.tmx");
-        mapRenderer = new IsometricTiledMapRenderer(map);
-        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 1f;
-        //TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
-        stage.getViewport().getCamera().position.set(0, 0, 0);
-        stage.getViewport().getCamera().update();
+        room = new Room(map, new FitViewport(1200,800));
+        mapRenderer = new IsometricTiledMapRenderer(map, 1, batch);
+        ((OrthographicCamera) (this.room.getViewport().getCamera())).zoom = 0.75f;
+        TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
+        this.room.getViewport().getCamera().position.set(layer.getWidth() * layer.getTileWidth() / 2, 0, 0);
+        this.room.getViewport().getCamera().update();
     }
 
     @Override
@@ -47,20 +51,26 @@ public class BasicRoomScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        stage.act();
-        stage.draw();
 
-        mapRenderer.setView((OrthographicCamera) stage.getViewport().getCamera());
+        mapRenderer.setView((OrthographicCamera) room.getViewport().getCamera());
         mapRenderer.render();
-        Iterator<MapLayer> iterator = map.getLayers().iterator();
-        while(iterator.hasNext()) {
-            MapLayer l = iterator.next();
-            mapRenderer.renderObjects(l);
-        }
+
+        room.act();
+        room.draw();
+
+        sr.begin(ShapeRenderer.ShapeType.Line);
+        sr.setColor(Color.BLACK);
+        sr.line(-50, 0, 50, 0);
+        sr.line(0, 50, 0, -50);
+        //sr.line(-50, 0, 50, 0);
+        sr.end();
+
     }
 
     @Override
     public void resize(int width, int height) {
+        room.getViewport().update(width, height);
+        
     }
 
     @Override

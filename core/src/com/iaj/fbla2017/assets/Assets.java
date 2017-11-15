@@ -13,6 +13,7 @@ package com.iaj.fbla2017.assets;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.iaj.fbla2017.map.objects.Furnature;
 
 /*
  * singleton for assets on loading. 
@@ -51,6 +52,9 @@ public class Assets extends LevelAssets {
         
         //maps
         //addAsset("map/school/schoolRooms/test.tmx",TiledMap.class);
+        
+        //furnature
+        addAsset("map/school/schoolFurniture/smallDeskWest.png", Texture.class);
         
         /*
 		Texture.class
