@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="16" nextobjectid="1006">
+<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="16" nextobjectid="1008">
  <tileset firstgid="1" source="tileSet.tsx"/>
  <tileset firstgid="53" source="../../tileSet/schoolFurniture.tsx"/>
+ <tileset firstgid="63" source="doorTileSet.tsx"/>
  <layer name="Tile Layer 1" width="20" height="16">
   <data encoding="csv">
 40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
@@ -378,5 +379,6 @@
     <property name="furnatureType" value="studentDesk"/>
    </properties>
   </object>
+  <object id="1007" gid="63" x="64" y="16" width="32" height="64"/>
  </objectgroup>
 </map>
