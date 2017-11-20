@@ -13,11 +13,11 @@ import com.iaj.fbla2017.assets.Assets;
  *
  * @author Jan Fic
  */
-public class StudentDesk extends Furniture{
-
-    public StudentDesk(int x, int y, String direction) {    
-        super(x,y);
-        sprite = new Sprite((Texture) Assets.GetInstance().get(Furniture.FURNATURE_PATH +  "smallDeskWest.png"));
-        this.setBounds(x, y, sprite.getWidth(), sprite.getHeight());
+public class Table extends Furniture {
+    
+    public Table(int x, int y, String direction) {
+        super(x, y);
+        this.sprite = new Sprite((Texture) Assets.GetInstance().get(FURNATURE_PATH));
     }
+    
 }

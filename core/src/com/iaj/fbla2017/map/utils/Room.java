@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.iaj.fbla2017.map.objects.StudentDesk;
+import com.iaj.fbla2017.map.objects.Wall;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,38 +24,38 @@ import java.util.List;
 public class Room extends Stage {
 
     List<Group> layers;
-    
 
-    public Room(TiledMap map,Viewport viewport) {
+    public Room(TiledMap map, Viewport viewport) {
         super(viewport);
         makeWall(map);
         makeFurnature(map);
     }
 
     private void makeWall(TiledMap map) {
-        Group furnatureLayer = new Group();
-        furnatureLayer.setName("furnatureLayer");
-        MapObjects objects = map.getLayers().get("wall").getObjects();
+        Group walls = new Group();
+        walls.setName("walls");
+
+        MapObjects objects = map.getLayers().get("wall 1").getObjects();
+        
         Iterator<MapObject> iterator = objects.iterator();
         while (iterator.hasNext()) {
             MapObject object = iterator.next();
-            if (object.getProperties().get("type", String.class).equalsIgnoreCase("furnature")) {
-                if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("studentDesk")) {
-                    String direction = object.getProperties().get("direction", String.class);
-                    int x = object.getProperties().get("x", float.class).intValue();
-                    int y = object.getProperties().get("y", float.class).intValue();
+            if (object.getProperties().get("type", String.class).equalsIgnoreCase("wall")) {
+                //System.out.println();
+                int x = object.getProperties().get("x", float.class).intValue();
+                int y = object.getProperties().get("y", float.class).intValue();
 
-                    StudentDesk studentDesk = new StudentDesk(x, y, direction);
-                    setToPosition(studentDesk, map);
-                    furnatureLayer.addActor(studentDesk);
-
-                }
+                Wall wall = new Wall(x, y);
+                setToPosition(wall, map);
+                walls.addActor(wall);
             }
+
         }
-        int offX = (int) map.getLayers().get("objects").getRenderOffsetX();
-        int offY = -(int) map.getLayers().get("objects").getRenderOffsetY();
-        furnatureLayer.setPosition(offX, offY);
-        this.addActor(furnatureLayer);
+        int offX = (int) map.getLayers().get("wall 1").getRenderOffsetX();
+        int offY = -(int) map.getLayers().get("wall 1").getRenderOffsetY();
+        System.out.println(offX);
+        walls.setPosition(offX, offY);
+        this.addActor(walls);
     }
 
     private void makeFurnature(TiledMap map) {
@@ -79,14 +80,9 @@ public class Room extends Stage {
         }
         int offX = (int) map.getLayers().get("objects").getRenderOffsetX();
         int offY = -(int) map.getLayers().get("objects").getRenderOffsetY();
+        
         furnatureLayer.setPosition(offX, offY);
         this.addActor(furnatureLayer);
-    }
-
-    @Override
-    public void draw() {
-        super.draw(); //To change body of generated methods, choose Tools | Templates.
-       
     }
 
     public void setToPosition(IsometricActor a, TiledMap map) {

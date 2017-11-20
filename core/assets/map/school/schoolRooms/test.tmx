@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="16" nextobjectid="1006">
+<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="16" nextobjectid="1088">
  <tileset firstgid="1" source="tileSet.tsx"/>
  <tileset firstgid="53" source="../../tileSet/schoolFurniture.tsx"/>
  <layer name="Tile Layer 1" width="20" height="16">
@@ -22,44 +22,44 @@
 40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40
 </data>
  </layer>
- <group name="wall">
-  <objectgroup name="wall 1" offsetx="0" offsety="-16">
-   <object id="533" type="wall" gid="41" x="16" y="256" width="32" height="32"/>
-   <object id="534" type="wall" gid="41" x="16" y="240" width="32" height="32"/>
-   <object id="535" type="wall" gid="41" x="16" y="224" width="32" height="32"/>
-   <object id="536" type="wall" gid="41" x="16" y="208" width="32" height="32"/>
-   <object id="537" type="wall" gid="41" x="16" y="192" width="32" height="32"/>
-   <object id="538" type="wall" gid="41" x="16" y="176" width="32" height="32"/>
-   <object id="539" type="wall" gid="41" x="16" y="16" width="32" height="32"/>
-   <object id="540" type="wall" gid="41" x="16" y="32" width="32" height="32"/>
-   <object id="541" type="wall" gid="41" x="16" y="48" width="32" height="32"/>
-   <object id="542" type="wall" gid="41" x="16" y="64" width="32" height="32"/>
-   <object id="543" type="wall" gid="41" x="16" y="160" width="32" height="32"/>
-   <object id="544" type="wall" gid="41" x="16" y="144" width="32" height="32"/>
-   <object id="545" type="wall" gid="41" x="16" y="112" width="32" height="32"/>
-   <object id="546" type="wall" gid="41" x="16" y="128" width="32" height="32"/>
-   <object id="547" type="wall" gid="41" x="16" y="96" width="32" height="32"/>
-   <object id="548" type="wall" gid="41" x="16" y="80" width="32" height="32"/>
-   <object id="549" type="wall" gid="41" x="32" y="16" width="32" height="32"/>
-   <object id="550" type="wall" gid="41" x="48" y="16" width="32" height="32"/>
-   <object id="551" type="wall" gid="41" x="64" y="16" width="32" height="32"/>
-   <object id="552" type="wall" gid="41" x="80" y="16" width="32" height="32"/>
-   <object id="553" type="wall" gid="41" x="96" y="16" width="32" height="32"/>
-   <object id="554" type="wall" gid="41" x="112" y="16" width="32" height="32"/>
-   <object id="555" type="wall" gid="41" x="128" y="16" width="32" height="32"/>
-   <object id="556" type="wall" gid="41" x="144" y="16" width="32" height="32"/>
-   <object id="557" type="wall" gid="41" x="160" y="16" width="32" height="32"/>
-   <object id="558" type="wall" gid="41" x="176" y="16" width="32" height="32"/>
-   <object id="559" type="wall" gid="41" x="192" y="16" width="32" height="32"/>
-   <object id="560" type="wall" gid="41" x="208" y="16" width="32" height="32"/>
-   <object id="561" type="wall" gid="41" x="224" y="16" width="32" height="32"/>
-   <object id="562" type="wall" gid="41" x="240" y="16" width="32" height="32"/>
-   <object id="563" type="wall" gid="41" x="256" y="16" width="32" height="32"/>
-   <object id="564" type="wall" gid="41" x="272" y="16" width="32" height="32"/>
-   <object id="565" type="wall" gid="41" x="304" y="16" width="32" height="32"/>
-   <object id="566" type="wall" gid="41" x="288" y="16" width="32" height="32"/>
-   <object id="567" type="wall" gid="41" x="320" y="16" width="32" height="32"/>
-  </objectgroup>
+ <objectgroup name="wall 1" offsetx="0" offsety="-16">
+  <object id="1025" type="wall" gid="41" x="16" y="16" width="32" height="32"/>
+  <object id="1026" type="wall" gid="41" x="32" y="16" width="32" height="32"/>
+  <object id="1027" type="wall" gid="41" x="48" y="16" width="32" height="32"/>
+  <object id="1031" type="wall" gid="41" x="64" y="16" width="32" height="32"/>
+  <object id="1032" type="wall" gid="41" x="80" y="16" width="32" height="32"/>
+  <object id="1033" type="wall" gid="41" x="96" y="16" width="32" height="32"/>
+  <object id="1034" type="wall" gid="41" x="112" y="16" width="32" height="32"/>
+  <object id="1035" type="wall" gid="41" x="128" y="16" width="32" height="32"/>
+  <object id="1036" type="wall" gid="41" x="144" y="16" width="32" height="32"/>
+  <object id="1037" type="wall" gid="41" x="160" y="16" width="32" height="32"/>
+  <object id="1038" type="wall" gid="41" x="176" y="16" width="32" height="32"/>
+  <object id="1039" type="wall" gid="41" x="192" y="16" width="32" height="32"/>
+  <object id="1040" type="wall" gid="41" x="208" y="16" width="32" height="32"/>
+  <object id="1041" type="wall" gid="41" x="224" y="16" width="32" height="32"/>
+  <object id="1042" type="wall" gid="41" x="240" y="16" width="32" height="32"/>
+  <object id="1043" type="wall" gid="41" x="256" y="16" width="32" height="32"/>
+  <object id="1044" type="wall" gid="41" x="272" y="16" width="32" height="32"/>
+  <object id="1045" type="wall" gid="41" x="288" y="16" width="32" height="32"/>
+  <object id="1046" type="wall" gid="41" x="304" y="16" width="32" height="32"/>
+  <object id="1047" type="wall" gid="41" x="320" y="16" width="32" height="32"/>
+  <object id="1065" type="wall" gid="41" x="16" y="32" width="32" height="32"/>
+  <object id="1068" type="wall" gid="41" x="16" y="48" width="32" height="32"/>
+  <object id="1069" type="wall" gid="41" x="16" y="64" width="32" height="32"/>
+  <object id="1070" type="wall" gid="41" x="16" y="80" width="32" height="32"/>
+  <object id="1071" type="wall" gid="41" x="16" y="96" width="32" height="32"/>
+  <object id="1072" type="wall" gid="41" x="16" y="112" width="32" height="32"/>
+  <object id="1073" type="wall" gid="41" x="16" y="128" width="32" height="32"/>
+  <object id="1074" type="wall" gid="41" x="16" y="144" width="32" height="32"/>
+  <object id="1075" type="wall" gid="41" x="16" y="160" width="32" height="32"/>
+  <object id="1078" type="wall" gid="41" x="16" y="176" width="32" height="32"/>
+  <object id="1079" type="wall" gid="41" x="16" y="192" width="32" height="32"/>
+  <object id="1080" type="wall" gid="41" x="16" y="208" width="32" height="32"/>
+  <object id="1081" type="wall" gid="41" x="16" y="224" width="32" height="32"/>
+  <object id="1082" type="wall" gid="41" x="16" y="240" width="32" height="32"/>
+  <object id="1083" type="wall" gid="41" x="16" y="256" width="32" height="32"/>
+ </objectgroup>
+ <group name="wall" visible="0">
   <objectgroup name="wall 2" offsetx="0" offsety="-32">
    <object id="866" type="wall" gid="41" x="16" y="256" width="32" height="32"/>
    <object id="867" type="wall" gid="41" x="16" y="240" width="32" height="32"/>
@@ -209,7 +209,7 @@
    <object id="1005" type="wall" gid="41" x="320" y="16" width="32" height="32"/>
   </objectgroup>
  </group>
- <objectgroup name="objects" offsetx="0" offsety="-16">
+ <objectgroup name="objects" visible="0" offsetx="0" offsety="-16">
   <object id="503" type="furnature" gid="53" x="80" y="144" width="32" height="32">
    <properties>
     <property name="direction" value="west"/>
@@ -373,6 +373,18 @@
    </properties>
   </object>
   <object id="532" type="furnature" gid="59" x="272" y="80" width="32" height="32">
+   <properties>
+    <property name="direction" value="west"/>
+    <property name="furnatureType" value="studentDesk"/>
+   </properties>
+  </object>
+  <object id="1063" type="furnature" gid="59" x="320" y="256" width="32" height="32">
+   <properties>
+    <property name="direction" value="west"/>
+    <property name="furnatureType" value="studentDesk"/>
+   </properties>
+  </object>
+  <object id="1064" type="furnature" gid="59" x="320" y="32" width="32" height="32">
    <properties>
     <property name="direction" value="west"/>
     <property name="furnatureType" value="studentDesk"/>

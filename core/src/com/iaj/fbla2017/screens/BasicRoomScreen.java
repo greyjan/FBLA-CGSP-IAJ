@@ -7,15 +7,13 @@ package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.map.utils.Room;
 
 /**
@@ -29,15 +27,13 @@ public class BasicRoomScreen implements Screen {
     private final IsometricTiledMapRenderer mapRenderer;
     private final SpriteBatch batch;
     private final Game game;
-    ShapeRenderer sr;
 
     public BasicRoomScreen(Game g) {
         this.game = g;
-        sr = new ShapeRenderer();
         batch = new SpriteBatch();
 
         map = new TmxMapLoader().load("map/school/schoolRooms/test.tmx");
-        room = new Room(map, new FitViewport(1200,800));
+        room = new Room(map, new ScreenViewport());
         mapRenderer = new IsometricTiledMapRenderer(map, 1, batch);
         ((OrthographicCamera) (this.room.getViewport().getCamera())).zoom = 0.75f;
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
@@ -57,13 +53,6 @@ public class BasicRoomScreen implements Screen {
 
         room.act();
         room.draw();
-
-        sr.begin(ShapeRenderer.ShapeType.Line);
-        sr.setColor(Color.BLACK);
-        sr.line(-50, 0, 50, 0);
-        sr.line(0, 50, 0, -50);
-        //sr.line(-50, 0, 50, 0);
-        sr.end();
 
     }
 
