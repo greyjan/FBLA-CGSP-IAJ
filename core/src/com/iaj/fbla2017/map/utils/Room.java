@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.iaj.fbla2017.map.objects.StudentDesk;
 import com.iaj.fbla2017.map.objects.Wall;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,33 +36,56 @@ public class Room extends Stage {
     private void makeWall(TiledMap map) {
         Group walls = new Group();
         walls.setName("walls");
+        for (int i = 1; i <= 5; i++) {
+            ArrayList<IsometricActor> wall = new ArrayList<IsometricActor>();
+            String layerName = "wall " + i;
 
-        MapObjects objects = map.getLayers().get("wall 1").getObjects();
-        
-        Iterator<MapObject> iterator = objects.iterator();
-        while (iterator.hasNext()) {
-            MapObject object = iterator.next();
-            if (object.getProperties().get("type", String.class).equalsIgnoreCase("wall")) {
-                //System.out.println();
-                int x = object.getProperties().get("x", float.class).intValue();
-                int y = object.getProperties().get("y", float.class).intValue();
+            MapObjects objects = map.getLayers().get(layerName).getObjects();
 
-                Wall wall = new Wall(x, y);
-                setToPosition(wall, map);
-                walls.addActor(wall);
+            Iterator<MapObject> iterator = objects.iterator();
+            while (iterator.hasNext()) {
+                MapObject object = iterator.next();
+                if (object.getProperties().get("type", String.class).equalsIgnoreCase("wall")) {
+                    //System.out.println();
+                    int x = object.getProperties().get("x", float.class).intValue();
+                    int y = object.getProperties().get("y", float.class).intValue();
+
+                    Wall w = new Wall(x, y);
+                    setToPosition(w, map);
+                    wall.add(w);
+                }
+
             }
 
+            wall.sort(new Comparator<IsometricActor>() {
+                @Override
+                public int compare(IsometricActor t, IsometricActor t1) {
+                    if (t.getIsoY() < t1.getIsoY()) {
+                        return 1;
+                    } else if (t.getIsoY() > t1.getIsoY()) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                }
+            });
+            
+            Group wall_layer = new Group();
+            for (int j = 0; j < wall.size(); j++) {
+                wall_layer.addActor(wall.get(j));
+            }
+            int offX = (int) map.getLayers().get(layerName).getRenderOffsetX();
+            int offY = -(int) map.getLayers().get(layerName).getRenderOffsetY();
+            wall_layer.setPosition(offX, offY);
+            walls.addActor(wall_layer);
         }
-        int offX = (int) map.getLayers().get("wall 1").getRenderOffsetX();
-        int offY = -(int) map.getLayers().get("wall 1").getRenderOffsetY();
-        System.out.println(offX);
-        walls.setPosition(offX, offY);
         this.addActor(walls);
     }
 
     private void makeFurnature(TiledMap map) {
         Group furnatureLayer = new Group();
         furnatureLayer.setName("furnatureLayer");
+
         MapObjects objects = map.getLayers().get("objects").getObjects();
         Iterator<MapObject> iterator = objects.iterator();
         while (iterator.hasNext()) {
@@ -80,7 +105,7 @@ public class Room extends Stage {
         }
         int offX = (int) map.getLayers().get("objects").getRenderOffsetX();
         int offY = -(int) map.getLayers().get("objects").getRenderOffsetY();
-        
+
         furnatureLayer.setPosition(offX, offY);
         this.addActor(furnatureLayer);
     }
@@ -88,7 +113,7 @@ public class Room extends Stage {
     public void setToPosition(IsometricActor a, TiledMap map) {
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
         float x = (a.getIsoX() + a.getIsoY()) / 2 * layer.getTileWidth();
-        float y = -((a.getIsoX() - a.getIsoY()) * layer.getTileHeight() / 2) + 5;
+        float y = -((a.getIsoX() - a.getIsoY()) * layer.getTileHeight() / 2);
         a.setPosition(x + a.getOffsetX(), y + a.getOffsetY());
     }
 }

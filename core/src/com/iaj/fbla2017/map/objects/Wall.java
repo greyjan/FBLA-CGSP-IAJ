@@ -22,11 +22,9 @@ public class Wall extends IsometricActor {
     public Wall(int x, int y) {
         super(0);
         sprite = new Sprite((Texture) Assets.GetInstance().get("map/tileSet/wall.png"));
-        
-        this.setBounds(x, y, sprite.getWidth(), sprite.getHeight());
-        this.setIsoX((x - 16) / (32 / 2));
-        this.setIsoY((y  - 16) / (32 / 2));
-        System.out.println(x  + " , " + y + " , " + getIsoX() + " , " + getIsoY());
+        setBounds(x, y, sprite.getWidth(), sprite.getHeight());
+        setIsoX((x - 16) / (16));
+        setIsoY((y) / (16));
     }
 
     @Override

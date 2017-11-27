@@ -5,14 +5,13 @@
  */
 package com.iaj.fbla2017.map.utils;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  *
  * @author Jan Fic
  */
-public class IsometricActor extends Actor implements IsometricPositioning {
+public abstract class IsometricActor extends Actor implements IsometricPositioning, Comparable<IsometricActor> {
 
     private int offsetX, offsetY;
     private float isoX, isoY;
@@ -80,4 +79,16 @@ public class IsometricActor extends Actor implements IsometricPositioning {
         this.offsetY = offsetY;
     }
 
+    @Override
+    public int compareTo(IsometricActor t) {
+        if(t.getIsoY() < this.getIsoY()) 
+            return 1;
+        else if(t.getIsoY() > this.getIsoY()) {
+            return -1;
+        }
+        else 
+            return 0;
+    }
+
+    
 }
