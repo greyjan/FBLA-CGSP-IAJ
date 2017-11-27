@@ -54,7 +54,6 @@ public class Room extends Stage {
                     setToPosition(w, map);
                     wall.add(w);
                 }
-
             }
 
             wall.sort(new Comparator<IsometricActor>() {
@@ -64,7 +63,13 @@ public class Room extends Stage {
                         return 1;
                     } else if (t.getIsoY() > t1.getIsoY()) {
                         return -1;
-                    } else {
+                    } else if(t.getIsoX() < t1.getIsoX()) {
+                        return -1;
+                    }
+                     else if(t.getIsoX() > t1.getIsoX()) {
+                        return 1;
+                    }
+                     else {
                         return 0;
                     }
                 }
@@ -85,7 +90,6 @@ public class Room extends Stage {
     private void makeFurnature(TiledMap map) {
         Group furnatureLayer = new Group();
         furnatureLayer.setName("furnatureLayer");
-
         MapObjects objects = map.getLayers().get("objects").getObjects();
         Iterator<MapObject> iterator = objects.iterator();
         while (iterator.hasNext()) {
@@ -95,11 +99,9 @@ public class Room extends Stage {
                     String direction = object.getProperties().get("direction", String.class);
                     int x = object.getProperties().get("x", float.class).intValue();
                     int y = object.getProperties().get("y", float.class).intValue();
-
                     StudentDesk studentDesk = new StudentDesk(x, y, direction);
                     setToPosition(studentDesk, map);
                     furnatureLayer.addActor(studentDesk);
-
                 }
             }
         }
