@@ -31,6 +31,7 @@ public class Assets extends LevelAssets {
         //paper
         addAsset("skin/paper.png", Texture.class);
         addAsset("skin/paperMargin.png", Texture.class);
+        addAsset("skin/paperHeader.png", Texture.class);
         
         //character 
             //body

@@ -8,10 +8,8 @@ package com.iaj.fbla2017.assets;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
@@ -22,46 +20,56 @@ import com.badlogic.gdx.utils.Align;
  */
 public class UISkin extends Skin {
 
-    private static UISkin INSTANCE = null;
+    private static Skin INSTANCE = null;
 
     private UISkin() {
         INSTANCE = Assets.GetInstance().get("skin/composed/skin.json");
     }
 
-    public static UISkin getInstance() {
+    public static Skin getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new UISkin();
         }
         return INSTANCE;
     }
 
-    private void addResources() {
-        add("stickynote", new NinePatch((Texture) Assets.GetInstance().get("skin/stickynote.9.png")));
-        add("stickynoteOver", new NinePatch((Texture) Assets.GetInstance().get("skin/stickynoteOver.9.png")));
-    }
-
-    private void addStyles() {
-        TextButtonStyle textbuttonStyle = new TextButtonStyle();
-        textbuttonStyle.font = new BitmapFont();
-        textbuttonStyle.up = this.getDrawable("stickynote");
-        add("stickynoteTextButton", textbuttonStyle, TextButtonStyle.class);
-    }
-
     public static class NotebookPaperTable extends Table {
 
         Texture paper;
+        Texture header;
+        
+        Label headerLabel;
 
-        public NotebookPaperTable() {
+        public NotebookPaperTable(String title, String style) {
             paper = (Texture) Assets.GetInstance().get("skin/paper.png");
             paper.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.Repeat);
-            //this.setBounds(0, 0, paper.getWidth(), paper.getWidth());
+
+            header = (Texture) Assets.GetInstance().get("skin/paperHeader.png");
+            header.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.Repeat);
+
+            headerLabel = new Label(title,(Skin)Assets.GetInstance().get("skin/composed/skin.json"),style);
+            headerLabel.setAlignment(Align.bottom);
+            this.row().height(31).padTop(4).padBottom(1).fillX();
+            this.add(headerLabel);
+
+            this.setDebug(true);
             this.padBottom(16);
+            this.padRight(32);
         }
 
+        public void setTitle(String title) {
+            headerLabel.setText(title);
+        }
+        
+        public void setHeader(Label l) {
+            this.headerLabel = l;
+            headerLabel.invalidate();
+        }
+        
         @Override
         public void addActor(Actor actor) {
-            super.addActor(actor); //To change body of generated methods, choose Tools | Templates.
-            this.padLeft(32);
+            super.addActor(actor);
+            this.padLeft(35);
         }
 
         @Override
@@ -69,7 +77,10 @@ public class UISkin extends Skin {
             Color c = getColor();
             batch.setColor(c.r, c.g, c.b, c.a);
             //batch.draw(texture, getX(), getY());
+            //batch.draw(header, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation(), 0, 0, (int) getWidth(), (int) getHeight(), false, false);
             batch.draw(paper, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation(), 0, 0, (int) getWidth(), (int) getHeight(), false, false);
+            batch.draw(header, getX(), getY() + getHeight() - 31, getOriginX(), getOriginY(), getWidth(), 31, getScaleX(), getScaleY(), getRotation(), 0, 0, (int) getWidth(), (int) 31, false, false);
+
             super.draw(batch, parentAlpha);
 
         }

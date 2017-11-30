@@ -8,7 +8,6 @@ package com.iaj.fbla2017.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -18,11 +17,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
-import com.iaj.fbla2017.assets.UISkin;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
 
 /**
@@ -44,7 +42,7 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen(Game g) {
         this.game = g;
-        stage = new Stage(new ScreenViewport());
+        stage = new Stage(new ExtendViewport(1000,800));
 //        stage = new Stage(new FitViewport(500, 400));
         skin = Assets.GetInstance().get("skin/composed/skin.json");
 
@@ -52,7 +50,7 @@ public class MainMenuScreen implements Screen {
         table.setFillParent(true);
 
         //menu
-        menu = new NotebookPaperTable();
+        menu = new NotebookPaperTable("FBLA: The First Year","title");
         //title
         title = new Label("Main Menu", skin, "title");
         
@@ -76,7 +74,7 @@ public class MainMenuScreen implements Screen {
         
         
         //some text
-        Label text = new Label("Thistftftftftftftft is some text cause like \n ... why not. \n i hope the alignment is good. \n probs not tho",skin);
+        Label text = new Label("Thistftftftftftftft is some text cause lik",skin);
         //menu.add(title).colspan(3);
         menu.row();
         menu.add(text);
@@ -89,7 +87,7 @@ public class MainMenuScreen implements Screen {
         stage.addActor(table);
         //stage.setDebugAll(true);
 
-        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 4f / 8f;
+        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 8f / 8f;
 
         //stage.getViewport().getCamera().position.set(layer.getWidth() * layer.getTileWidth() / 2, 0, 0);
         stage.getViewport().getCamera().update();
@@ -104,13 +102,15 @@ public class MainMenuScreen implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(delta);
+        stage.act();
         stage.draw();
+        
     }
 
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height);
+        
     }
 
     @Override

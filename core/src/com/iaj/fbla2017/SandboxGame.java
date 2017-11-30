@@ -3,8 +3,6 @@ package com.iaj.fbla2017;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.iaj.fbla2017.screens.BasicRoomScreen;
 import com.iaj.fbla2017.screens.CharacterCustomizationScreen;
 import com.iaj.fbla2017.screens.LoadingScreen;
