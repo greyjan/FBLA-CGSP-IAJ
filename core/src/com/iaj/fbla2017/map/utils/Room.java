@@ -12,7 +12,9 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.iaj.fbla2017.map.objects.Door;
 import com.iaj.fbla2017.map.objects.StudentDesk;
+import com.iaj.fbla2017.map.objects.Table;
 import com.iaj.fbla2017.map.objects.Wall;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -90,6 +92,9 @@ public class Room extends Stage {
     private void makeFurnature(TiledMap map) {
         Group furnatureLayer = new Group();
         furnatureLayer.setName("furnatureLayer");
+        
+        ArrayList<IsometricActor> actors = new ArrayList<IsometricActor>();
+        
         MapObjects objects = map.getLayers().get("objects").getObjects();
         Iterator<MapObject> iterator = objects.iterator();
         while (iterator.hasNext()) {
@@ -101,10 +106,53 @@ public class Room extends Stage {
                     int y = object.getProperties().get("y", float.class).intValue();
                     StudentDesk studentDesk = new StudentDesk(x, y, direction);
                     setToPosition(studentDesk, map);
-                    furnatureLayer.addActor(studentDesk);
+                    actors.add(studentDesk);
                 }
+                else if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("door")) {
+                    String direction = object.getProperties().get("direction", String.class);
+                    int x = object.getProperties().get("x", float.class).intValue();
+                    int y = object.getProperties().get("y", float.class).intValue();
+                    Door door = new Door(x, y, direction);
+                    setToPosition(door, map);
+                    actors.add(door);
+                }
+                else if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("table")) {
+                    String direction = object.getProperties().get("direction", String.class);
+                    int x = object.getProperties().get("x", float.class).intValue();
+                    int y = object.getProperties().get("y", float.class).intValue();
+                    String part = object.getProperties().get("part", String.class);
+                    Table table = new Table(x, y, direction,part);
+                    setToPosition(table, map);
+                    actors.add(table);
+                }
+                
+                 //computers?
             }
+            
+            
         }
+        
+        actors.sort(new Comparator<IsometricActor>() {
+                @Override
+                public int compare(IsometricActor t, IsometricActor t1) {
+                    if (t.getIsoY() < t1.getIsoY()) {
+                        return 1;
+                    } else if (t.getIsoY() > t1.getIsoY()) {
+                        return -1;
+                    } else if(t.getIsoX() < t1.getIsoX()) {
+                        return -1;
+                    }
+                     else if(t.getIsoX() > t1.getIsoX()) {
+                        return 1;
+                    }
+                     else {
+                        return 0;
+                    }
+                }
+            });
+            for (int j = 0; j < actors.size(); j++) {
+                furnatureLayer.addActor(actors.get(j));
+            }
         int offX = (int) map.getLayers().get("objects").getRenderOffsetX();
         int offY = -(int) map.getLayers().get("objects").getRenderOffsetY();
 

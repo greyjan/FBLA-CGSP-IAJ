@@ -15,7 +15,7 @@ import com.iaj.fbla2017.map.utils.IsometricActor;
  */
 public class Furniture extends IsometricActor{
 
-    public final static String FURNATURE_PATH = "map/school/schoolFurniture/";
+    public final static String FURNITURE_PATH = "map/tileSet/";
     protected Sprite sprite;
     
     public Furniture(int x, int y) {
@@ -30,8 +30,5 @@ public class Furniture extends IsometricActor{
     public void draw(Batch batch, float parentAlpha) {
         batch.setColor(this.getColor());
         batch.draw(sprite, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
-    }
-    
-    
-    
+    }    
 }

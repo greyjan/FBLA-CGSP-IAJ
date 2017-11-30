@@ -11,7 +11,6 @@
 package com.iaj.fbla2017.assets;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.iaj.fbla2017.map.objects.Furniture;
 
@@ -55,7 +54,18 @@ public class Assets extends LevelAssets {
         
         //furnature
         addAsset("map/school/schoolFurniture/smallDeskWest.png", Texture.class);
-        addAsset("map/tileSet/wall.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "wall.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "studentDeskWest.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "studentDeskNorth.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "doorEast.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "doorSouth.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableRightWest.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableRightNorth.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableLeftWest.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableLeftNorth.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableCenterNorth.png", Texture.class);
+        addAsset(Furniture.FURNITURE_PATH + "tableCenterWest.png", Texture.class);
+        
         
         /*
 		Texture.class

@@ -18,7 +18,7 @@ public class Door extends Furniture{
     
     public Door(int x, int y, String direction) {
         super(x, y);
-        sprite = new Sprite((Texture) Assets.GetInstance().get(Furniture.FURNATURE_PATH + "door" + direction + ".png"));
+        sprite = new Sprite((Texture) Assets.GetInstance().get(Furniture.FURNITURE_PATH + "door" + direction + ".png"));
         this.setBounds(x, y, sprite.getWidth(), sprite.getHeight());
         this.setIsoX((x - 16 ) / (16));
         this.setIsoY((y) / (16));

@@ -18,7 +18,7 @@ public class StudentDesk extends Furniture {
 
     public StudentDesk(int x, int y, String direction) {
         super(x, y);
-        sprite = new Sprite((Texture) Assets.GetInstance().get(Furniture.FURNATURE_PATH + "smallDeskWest.png"));
+        sprite = new Sprite((Texture) Assets.GetInstance().get(Furniture.FURNITURE_PATH + "studentDeskWest.png"));
         this.setBounds(x, y, sprite.getWidth(), sprite.getHeight());
         this.setIsoX((x - 16 ) / (16));
         this.setIsoY((y) / (16));
