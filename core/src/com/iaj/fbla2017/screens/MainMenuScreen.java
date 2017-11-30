@@ -9,7 +9,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -18,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
@@ -42,7 +40,7 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen(Game g) {
         this.game = g;
-        stage = new Stage(new ExtendViewport(1000,800));
+        stage = new Stage(new ExtendViewport(SandboxGame.WIDTH/2,SandboxGame.HEIGHT/2));
 //        stage = new Stage(new FitViewport(500, 400));
         skin = Assets.GetInstance().get("skin/composed/skin.json");
 
@@ -80,17 +78,14 @@ public class MainMenuScreen implements Screen {
         menu.add(text);
         menu.row();
         menu.add(test);
+        menu.row().height(250);
+        menu.add();
         //menu.setDebug(true);
         
         table.add(menu);
 
         stage.addActor(table);
         //stage.setDebugAll(true);
-
-        ((OrthographicCamera) (stage.getViewport().getCamera())).zoom = 8f / 8f;
-
-        //stage.getViewport().getCamera().position.set(layer.getWidth() * layer.getTileWidth() / 2, 0, 0);
-        stage.getViewport().getCamera().update();
     }
 
     @Override

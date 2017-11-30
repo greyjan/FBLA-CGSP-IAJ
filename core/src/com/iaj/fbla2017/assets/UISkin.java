@@ -52,7 +52,6 @@ public class UISkin extends Skin {
             this.row().height(31).padTop(4).padBottom(1).fillX();
             this.add(headerLabel);
 
-            this.setDebug(true);
             this.padBottom(16);
             this.padRight(32);
         }

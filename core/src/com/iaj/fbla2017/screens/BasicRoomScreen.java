@@ -14,6 +14,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.map.utils.Room;
 
 /**
@@ -33,10 +34,9 @@ public class BasicRoomScreen implements Screen {
         batch = new SpriteBatch();
 
         map = new TmxMapLoader().load("map/school/schoolRooms/test.tmx");
-        room = new Room(map, new ExtendViewport(1000,800));
+        room = new Room(map, new ExtendViewport(SandboxGame.WIDTH/2,SandboxGame.HEIGHT/2));
         //room.setDebugAll(true);
         mapRenderer = new IsometricTiledMapRenderer(map, 1, batch);
-        ((OrthographicCamera) (this.room.getViewport().getCamera())).zoom = 0.5f;
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(0);
         this.room.getViewport().getCamera().position.set(layer.getWidth() * layer.getTileWidth() / 2, 0, 0);
         this.room.getViewport().getCamera().update();

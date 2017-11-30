@@ -11,6 +11,9 @@ import com.iaj.fbla2017.screens.MainMenuScreen;
 
 public class SandboxGame extends Game {
 
+    public static int WIDTH = 1000;
+    public static int HEIGHT = 800;
+    
     LoadingScreen loadingScreen;
     public CharacterCustomizationScreen cCScreen;
     public MainMenuScreen mmScreen;
