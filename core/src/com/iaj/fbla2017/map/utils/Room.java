@@ -65,18 +65,16 @@ public class Room extends Stage {
                         return 1;
                     } else if (t.getIsoY() > t1.getIsoY()) {
                         return -1;
-                    } else if(t.getIsoX() < t1.getIsoX()) {
+                    } else if (t.getIsoX() < t1.getIsoX()) {
                         return -1;
-                    }
-                     else if(t.getIsoX() > t1.getIsoX()) {
+                    } else if (t.getIsoX() > t1.getIsoX()) {
                         return 1;
-                    }
-                     else {
+                    } else {
                         return 0;
                     }
                 }
             });
-            
+
             Group wall_layer = new Group();
             for (int j = 0; j < wall.size(); j++) {
                 wall_layer.addActor(wall.get(j));
@@ -90,74 +88,66 @@ public class Room extends Stage {
     }
 
     private void makeFurnature(TiledMap map) {
-        Group furnatureLayer = new Group();
-        furnatureLayer.setName("furnatureLayer");
-        
+        Group furnitureLayer = new Group();
+        furnitureLayer.setName("furnitureLayer");
+
         ArrayList<IsometricActor> actors = new ArrayList<IsometricActor>();
-        
+
         MapObjects objects = map.getLayers().get("objects").getObjects();
         Iterator<MapObject> iterator = objects.iterator();
         while (iterator.hasNext()) {
             MapObject object = iterator.next();
-            if (object.getProperties().get("type", String.class).equalsIgnoreCase("furnature")) {
-                if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("studentDesk")) {
+            if (object.getProperties().get("type", String.class).equalsIgnoreCase("furniture")) {
+                if (object.getProperties().get("furnitureType", String.class).equalsIgnoreCase("studentDesk")) {
                     String direction = object.getProperties().get("direction", String.class);
                     int x = object.getProperties().get("x", float.class).intValue();
                     int y = object.getProperties().get("y", float.class).intValue();
                     StudentDesk studentDesk = new StudentDesk(x, y, direction);
                     setToPosition(studentDesk, map);
                     actors.add(studentDesk);
-                }
-                else if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("door")) {
+                } else if (object.getProperties().get("furnitureType", String.class).equalsIgnoreCase("door")) {
                     String direction = object.getProperties().get("direction", String.class);
                     int x = object.getProperties().get("x", float.class).intValue();
                     int y = object.getProperties().get("y", float.class).intValue();
                     Door door = new Door(x, y, direction);
                     setToPosition(door, map);
                     actors.add(door);
-                }
-                else if (object.getProperties().get("furnatureType", String.class).equalsIgnoreCase("table")) {
+                } else if (object.getProperties().get("furnitureType", String.class).equalsIgnoreCase("table")) {
                     String direction = object.getProperties().get("direction", String.class);
                     int x = object.getProperties().get("x", float.class).intValue();
                     int y = object.getProperties().get("y", float.class).intValue();
                     String part = object.getProperties().get("part", String.class);
-                    Table table = new Table(x, y, direction,part);
+                    Table table = new Table(x, y, direction, part);
                     setToPosition(table, map);
                     actors.add(table);
                 }
-                
-                 //computers?
             }
-            
-            
         }
-        
+
         actors.sort(new Comparator<IsometricActor>() {
-                @Override
-                public int compare(IsometricActor t, IsometricActor t1) {
-                    if (t.getIsoY() < t1.getIsoY()) {
-                        return 1;
-                    } else if (t.getIsoY() > t1.getIsoY()) {
-                        return -1;
-                    } else if(t.getIsoX() < t1.getIsoX()) {
-                        return -1;
-                    }
-                     else if(t.getIsoX() > t1.getIsoX()) {
-                        return 1;
-                    }
-                     else {
-                        return 0;
-                    }
+            @Override
+            public int compare(IsometricActor t, IsometricActor t1) {
+                if (t.getIsoY() < t1.getIsoY()) {
+                    return 1;
+                } else if (t.getIsoY() > t1.getIsoY()) {
+                    return -1;
+                } else if (t.getIsoX() < t1.getIsoX()) {
+                    return -1;
+                } else if (t.getIsoX() > t1.getIsoX()) {
+                    return 1;
+                } else {
+                    return 0;
                 }
-            });
-            for (int j = 0; j < actors.size(); j++) {
-                furnatureLayer.addActor(actors.get(j));
             }
+        });
+        for (int j = 0; j < actors.size(); j++) {
+            furnitureLayer.addActor(actors.get(j));
+        }
         int offX = (int) map.getLayers().get("objects").getRenderOffsetX();
         int offY = -(int) map.getLayers().get("objects").getRenderOffsetY();
 
-        furnatureLayer.setPosition(offX, offY);
-        this.addActor(furnatureLayer);
+        furnitureLayer.setPosition(offX, offY);
+        this.addActor(furnitureLayer);
     }
 
     public void setToPosition(IsometricActor a, TiledMap map) {

@@ -27,13 +27,11 @@ import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
  */
 public class MainMenuScreen implements Screen {
 
-    //esentials
     private final Game game;
 
-    //stage
     public Stage stage;
     Table table;
-    TextButton test;
+    TextButton playButton,exitButton;
     Label title;
     NotebookPaperTable menu;
     Skin skin;
@@ -41,7 +39,6 @@ public class MainMenuScreen implements Screen {
     public MainMenuScreen(Game g) {
         this.game = g;
         stage = new Stage(new ExtendViewport(SandboxGame.WIDTH/2,SandboxGame.HEIGHT/2));
-//        stage = new Stage(new FitViewport(500, 400));
         skin = Assets.GetInstance().get("skin/composed/skin.json");
 
         table = new Table();
@@ -53,8 +50,8 @@ public class MainMenuScreen implements Screen {
         title = new Label("Main Menu", skin, "title");
         
         //button test
-        test = new TextButton("Play",skin);
-        test.addListener(new InputListener() {
+        playButton = new TextButton("Play",skin);
+        playButton.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -63,29 +60,42 @@ public class MainMenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (test.isOver()) {
+                if (playButton.isOver()) {
                     game.setScreen(((SandboxGame) game).brScreen);
 
                 }
             }
         });
         
-        
-        //some text
-        Label text = new Label("Thistftftftftftftft is some text cause lik",skin);
-        //menu.add(title).colspan(3);
+        exitButton = new TextButton("Exit",skin);
+        exitButton.addListener(new InputListener() {
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                if (exitButton.isOver()) {
+                    Gdx.app.exit();
+                }
+            }
+        });
+
+        Label text = new Label("The Game",skin);
         menu.row();
         menu.add(text);
         menu.row();
-        menu.add(test);
-        menu.row().height(250);
+        menu.add(playButton).width(60).padBottom(10);
+        menu.row();
+        menu.add(exitButton).width(60).padBottom(10);
+        menu.row().height(200 - menu.getHeight() );
         menu.add();
-        //menu.setDebug(true);
         
         table.add(menu);
 
         stage.addActor(table);
-        //stage.setDebugAll(true);
     }
 
     @Override

@@ -32,5 +32,4 @@ public class Wall extends IsometricActor {
         batch.setColor(this.getColor());
         batch.draw(sprite, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
     }
-
 }
