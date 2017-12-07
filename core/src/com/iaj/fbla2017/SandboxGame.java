@@ -8,6 +8,7 @@ import com.iaj.fbla2017.screens.CharacterCustomizationScreen;
 import com.iaj.fbla2017.screens.LoadingScreen;
 import com.iaj.fbla2017.screens.LoadingScreen.ILoadingListener;
 import com.iaj.fbla2017.screens.MainMenuScreen;
+import com.iaj.fbla2017.screens.ProfileSelectionScreen;
 
 public class SandboxGame extends Game {
 
@@ -18,6 +19,7 @@ public class SandboxGame extends Game {
     public CharacterCustomizationScreen cCScreen;
     public MainMenuScreen mmScreen;
     public BasicRoomScreen brScreen;
+    public ProfileSelectionScreen psScreen;
 
     @Override
     public void create() {
@@ -28,6 +30,7 @@ public class SandboxGame extends Game {
                 cCScreen = new CharacterCustomizationScreen(SandboxGame.this);
                 mmScreen = new MainMenuScreen(SandboxGame.this);
                 brScreen = new BasicRoomScreen(SandboxGame.this);
+                psScreen = new ProfileSelectionScreen(SandboxGame.this);
                 SandboxGame.this.setScreen(mmScreen);
             }
         });

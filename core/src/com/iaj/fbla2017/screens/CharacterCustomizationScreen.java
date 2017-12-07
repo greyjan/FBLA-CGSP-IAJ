@@ -19,7 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.map.utils.IsometricTiledMapRendererWithSprites;
-import com.iaj.fbla2017.map.actors.player.Character;
+import com.iaj.fbla2017.map.actors.character.Character;
 
 /**
  *

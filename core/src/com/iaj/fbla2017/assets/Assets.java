@@ -67,7 +67,6 @@ public class Assets extends LevelAssets {
         addAsset(Furniture.FURNITURE_PATH + "tableCenterNorth.png", Texture.class);
         addAsset(Furniture.FURNITURE_PATH + "tableCenterWest.png", Texture.class);
         
-        
         /*
 		Texture.class
 		Sound.class

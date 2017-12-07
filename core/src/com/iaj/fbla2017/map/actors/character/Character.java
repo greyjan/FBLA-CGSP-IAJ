@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.iaj.fbla2017.map.actors.player;
+package com.iaj.fbla2017.map.actors.character;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -22,11 +22,8 @@ import java.util.Random;
  * @author Jan Fic
  */
 public class Character extends IsometricActor {
-
-    //this class
     
-    
-    final String path = "character/";
+    String path = "character/";
 
     SpriteBatch batch;
     Sprite sprite;

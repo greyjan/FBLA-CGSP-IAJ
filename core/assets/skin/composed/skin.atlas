@@ -6,49 +6,49 @@ filter: Nearest,Nearest
 repeat: none
 bradleyHand12pxBold_0
   rotate: false
-  xy: 259, 553
+  xy: 1, 566
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand12px_0
   rotate: false
-  xy: 1, 295
+  xy: 1, 308
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand16pxBold_0
   rotate: false
-  xy: 1, 37
+  xy: 259, 566
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand16px_0
   rotate: false
-  xy: 1, 553
+  xy: 1, 50
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand32pxBold_0
   rotate: false
-  xy: 517, 553
+  xy: 259, 308
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 bradleyHand32px_0
   rotate: false
-  xy: 259, 295
+  xy: 517, 566
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 progressBar
   rotate: false
-  xy: 1, 19
+  xy: 1, 32
   size: 32, 16
   split: 16, 15, 6, 9
   pad: 4, 4, 3, 2
@@ -57,15 +57,22 @@ progressBar
   index: -1
 progressBarFilled
   rotate: false
-  xy: 35, 25
+  xy: 259, 279
   size: 13, 10
   split: 6, 6, 5, 4
   orig: 13, 10
   offset: 0, 0
   index: -1
+selectionColor
+  rotate: false
+  xy: 548, 563
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
 sliderBar
   rotate: false
-  xy: 1, 1
+  xy: 35, 32
   size: 16, 16
   split: 8, 7, 7, 8
   pad: 8, 7, 8, 7
@@ -74,7 +81,7 @@ sliderBar
   index: -1
 sliderBarFill
   rotate: false
-  xy: 259, 252
+  xy: 291, 296
   size: 10, 10
   split: 5, 4, 4, 5
   orig: 10, 10
@@ -82,7 +89,7 @@ sliderBarFill
   index: -1
 sliderBarKnob
   rotate: false
-  xy: 290, 283
+  xy: 517, 523
   size: 10, 10
   split: 5, 4, 4, 5
   orig: 10, 10
@@ -90,7 +97,7 @@ sliderBarKnob
   index: -1
 stickynote
   rotate: false
-  xy: 259, 264
+  xy: 517, 535
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13
@@ -99,7 +106,7 @@ stickynote
   index: -1
 stickynoteDown
   rotate: false
-  xy: 775, 780
+  xy: 775, 793
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13
@@ -108,10 +115,26 @@ stickynoteDown
   index: -1
 stickynoteOver
   rotate: false
-  xy: 517, 522
+  xy: 1, 1
   size: 29, 29
   split: 12, 15, 12, 15
   pad: 14, 13, 14, 13
   orig: 29, 29
+  offset: 0, 0
+  index: -1
+textFieldCursor
+  rotate: false
+  xy: 775, 775
+  size: 1, 16
+  orig: 1, 16
+  offset: 0, 0
+  index: -1
+textFieldBackground
+  rotate: false
+  xy: 259, 291
+  size: 30, 15
+  split: 15, 14, 7, 7
+  pad: 5, 5, 5, 3
+  orig: 30, 15
   offset: 0, 0
   index: -1

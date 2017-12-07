@@ -8,6 +8,7 @@ package com.iaj.fbla2017.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -20,6 +21,11 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
+import com.iaj.fbla2017.profiles.Profile;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,26 +37,26 @@ public class MainMenuScreen implements Screen {
 
     public Stage stage;
     Table table;
-    TextButton playButton,exitButton;
+    TextButton playButton, exitButton;
     Label title;
     NotebookPaperTable menu;
     Skin skin;
 
     public MainMenuScreen(Game g) {
         this.game = g;
-        stage = new Stage(new ExtendViewport(SandboxGame.WIDTH/2,SandboxGame.HEIGHT/2));
+        stage = new Stage(new ExtendViewport(SandboxGame.WIDTH / 2, SandboxGame.HEIGHT / 2));
         skin = Assets.GetInstance().get("skin/composed/skin.json");
 
         table = new Table();
         table.setFillParent(true);
 
         //menu
-        menu = new NotebookPaperTable("FBLA: The First Year","title");
+        menu = new NotebookPaperTable("FBLA: The First Year", "title");
         //title
         title = new Label("Main Menu", skin, "title");
-        
+
         //button test
-        playButton = new TextButton("Play",skin);
+        playButton = new TextButton("Play", skin);
         playButton.addListener(new InputListener() {
 
             @Override
@@ -61,13 +67,13 @@ public class MainMenuScreen implements Screen {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if (playButton.isOver()) {
-                    game.setScreen(((SandboxGame) game).brScreen);
+                    game.setScreen(((SandboxGame) game).psScreen);
 
                 }
             }
         });
-        
-        exitButton = new TextButton("Exit",skin);
+
+        exitButton = new TextButton("Exit", skin);
         exitButton.addListener(new InputListener() {
 
             @Override
@@ -83,19 +89,37 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        Label text = new Label("The Game",skin);
+        Label text = new Label("The Game", skin);
         menu.row();
         menu.add(text);
         menu.row();
-        menu.add(playButton).width(60).padBottom(10);
+        menu.add(playButton).width(60).height(60).padBottom(10);
         menu.row();
-        menu.add(exitButton).width(60).padBottom(10);
-        menu.row().height(200 - menu.getHeight() );
+        menu.add(exitButton).width(60).height(60).padBottom(10);
+        menu.row().height(200 - menu.getHeight());
         menu.add();
         
+
         table.add(menu);
 
         stage.addActor(table);
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Make Profile (0/1)> ");
+//        int is = scan.nextInt();
+//        scan.nextLine();
+//        if (is > 0) {
+//            System.out.println("MAKE PROFILE");
+//            Profile p = new Profile(scan.nextLine(), scan.nextLine(), scan.nextInt());
+//            System.out.println(p);
+//            p.save();
+//        } else {
+//            System.out.println("LOAD PROFILE");
+//            System.out.print("Profile Name > ");
+//            String name = scan.nextLine();
+//            Profile p = Profile.load(name);
+//            System.out.println(p);
+//        }
+
     }
 
     @Override
@@ -109,13 +133,13 @@ public class MainMenuScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
         stage.draw();
-        
+
     }
 
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height);
-        
+
     }
 
     @Override
