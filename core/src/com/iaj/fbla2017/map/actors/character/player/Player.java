@@ -6,14 +6,19 @@
 package com.iaj.fbla2017.map.actors.character.player;
 
 import com.iaj.fbla2017.map.actors.character.Character;
+
 /**
  *
  * @author Jan Fic
  */
-public class Player extends Character {
-    
-    public Player(char value) {
+public class Player extends Character{
+
+    public Player(int value) {
         super(value);
     }
-    
+
+    public Player(int l, String _gender, String _headShape) {
+        super(l, _gender, _headShape);
+    }
+
 }

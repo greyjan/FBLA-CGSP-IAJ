@@ -57,12 +57,6 @@ public abstract class IsometricActor extends Actor implements IsometricPositioni
         isoY += vy;
     }
 
-    private void calcScreenPosition() {
-        //float x = (a.getIsoX() - a.getIsoY()) / 2 * layer.getTileWidth() + layer.getWidth() * layer.getTileWidth() / 2;
-        //float y = -((a.getIsoX() + a.getIsoY()) * layer.getTileHeight() / 2) + layer.getHeight() * layer.getTileHeight() / 2 - 3 + a.getLayer() * layer.getTileHeight();
-
-    }
-
     public int getOffsetX() {
         return offsetX;
     }

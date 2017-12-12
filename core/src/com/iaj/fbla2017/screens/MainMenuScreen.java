@@ -8,7 +8,6 @@ package com.iaj.fbla2017.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -21,11 +20,6 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
-import com.iaj.fbla2017.profiles.Profile;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -96,29 +90,14 @@ public class MainMenuScreen implements Screen {
         menu.add(playButton).width(60).height(60).padBottom(10);
         menu.row();
         menu.add(exitButton).width(60).height(60).padBottom(10);
-        menu.row().height(200 - menu.getHeight());
+        menu.row().height(150 - menu.getHeight());
         menu.add();
         
 
         table.add(menu);
 
         stage.addActor(table);
-//        Scanner scan = new Scanner(System.in);
-//        System.out.print("Make Profile (0/1)> ");
-//        int is = scan.nextInt();
-//        scan.nextLine();
-//        if (is > 0) {
-//            System.out.println("MAKE PROFILE");
-//            Profile p = new Profile(scan.nextLine(), scan.nextLine(), scan.nextInt());
-//            System.out.println(p);
-//            p.save();
-//        } else {
-//            System.out.println("LOAD PROFILE");
-//            System.out.print("Profile Name > ");
-//            String name = scan.nextLine();
-//            Profile p = Profile.load(name);
-//            System.out.println(p);
-//        }
+
 
     }
 

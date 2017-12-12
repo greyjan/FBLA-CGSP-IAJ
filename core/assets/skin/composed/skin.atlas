@@ -122,13 +122,6 @@ stickynoteOver
   orig: 29, 29
   offset: 0, 0
   index: -1
-textFieldCursor
-  rotate: false
-  xy: 775, 775
-  size: 1, 16
-  orig: 1, 16
-  offset: 0, 0
-  index: -1
 textFieldBackground
   rotate: false
   xy: 259, 291
@@ -136,5 +129,12 @@ textFieldBackground
   split: 15, 14, 7, 7
   pad: 5, 5, 5, 3
   orig: 30, 15
+  offset: 0, 0
+  index: -1
+textFieldCursor
+  rotate: false
+  xy: 775, 775
+  size: 1, 16
+  orig: 1, 16
   offset: 0, 0
   index: -1

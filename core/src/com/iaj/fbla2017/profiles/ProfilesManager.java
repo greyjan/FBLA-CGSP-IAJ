@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class ProfilesManager {
     
     private static ProfilesManager INSTANCE = null;
-    public final static FileHandle saveDir = Gdx.files.local("FBLA2017SHS/");
+    public final static FileHandle saveDir = Gdx.files.local("FBLA2017SHS/saves/");
     private FileHandle saves;
     public ArrayList<Profile> profiles;
     public Profile currentProfile;
@@ -56,9 +56,7 @@ public class ProfilesManager {
         for(Profile p : profiles) {
             p.save();
             saves.writeString(p.name + "\n", true);
-        }
-        
-        
+        }      
     }
     
     

@@ -26,6 +26,12 @@ com.badlogic.gdx.graphics.Color: {
 		b: 0
 		a: 1
 	}
+	RGBA_135_135_135_255: {
+		r: 0.53
+		g: 0.53
+		b: 0.53
+		a: 1
+	}
 	RGBA_255_255_255_255: {
 		r: 1
 		g: 1
@@ -50,6 +56,21 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 		fontColor: RGBA_0_0_0_255
 	}
 }
+com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
+	default: {
+		font: bradleyHand16pxBold
+		fontColorSelected: RGBA_0_0_0_255
+		fontColorUnselected: RGBA_0_0_0_255
+		selection: sliderBar
+		background: stickynote
+	}
+	selectionList: {
+		font: bradleyHand16pxBold
+		fontColorSelected: RGBA_0_0_0_255
+		fontColorUnselected: RGBA_135_135_135_255
+		selection: sliderBar
+	}
+}
 com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
 	default-horizontal: {
 		background: progressBar
@@ -57,6 +78,24 @@ com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
 	}
 	default-vertical: {
 		background: progressBar
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
+	default: {
+		background: stickynote
+		hScrollKnob: sliderBarFill
+		vScrollKnob: sliderBarFill
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
+	default: {
+		font: bradleyHand16pxBold
+		fontColor: RGBA_0_0_0_255
+		background: stickynote
+		scrollStyle: default
+		listStyle: selectionList
+		backgroundOver: stickynoteOver
+		backgroundOpen: stickynoteDown
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {

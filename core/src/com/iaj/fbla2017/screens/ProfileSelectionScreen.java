@@ -4,18 +4,17 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
-import com.iaj.fbla2017.profiles.Profile;
 import com.iaj.fbla2017.profiles.ProfilesManager;
 
 /**
@@ -49,11 +48,12 @@ public class ProfileSelectionScreen implements Screen {
 
         for (int i = 0; i < profileManager.profiles.size(); i++) {
             TextButton profileButton = new TextButton(profileManager.profiles.get(i).toString(), skin);
-            menu.add(profileButton);
+            menu.add(profileButton).width(200).pad(12);
             menu.row();
         }
 
         TextButton makeNewProfile = new TextButton("Make\nNew Profile", skin);
+        makeNewProfile.setColor(0.6f, 1f, 0.6f, 1f);
         makeNewProfile.addListener(new InputListener() {
 
             @Override
@@ -68,11 +68,9 @@ public class ProfileSelectionScreen implements Screen {
 
         });
 
-        menu.add(makeNewProfile).height(60).padBottom(10);
-        menu.row();
-        TextField testTF = new TextField("testing test field", skin);
-        menu.add(testTF);
-
+        menu.add(makeNewProfile).height(60).padBottom(10).width(150);
+        menu.row().height(100 - menu.getHeight());
+        menu.add();
         table.add(menu);
         stage.addActor(table);
     }
@@ -84,6 +82,10 @@ public class ProfileSelectionScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        Color c = Color.TAN;
+        Gdx.gl.glClearColor(c.r, c.g,c.b,c.a);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         stage.act();
         stage.draw();
     }
