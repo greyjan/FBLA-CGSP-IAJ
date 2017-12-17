@@ -13,6 +13,7 @@ package com.iaj.fbla2017.assets;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.iaj.fbla2017.map.objects.Furniture;
+import com.iaj.fbla2017.map.actors.character.Character;
 
 /*
  * singleton for assets on loading. 
@@ -32,19 +33,44 @@ public class Assets extends LevelAssets {
         addAsset("skin/paper.png", Texture.class);
         addAsset("skin/paperMargin.png", Texture.class);
         addAsset("skin/paperHeader.png", Texture.class);
+        String bodyPart;
+        String animationType;
+        String direction;
         
-        //character 
-            //body
-        addAsset("character/head/round.png", Texture.class);
-        addAsset("character/head/pointed.png", Texture.class);
-        addAsset("character/head/square.png", Texture.class);
-        addAsset("character/head/wide.png", Texture.class);
-        addAsset("character/leg/female.png", Texture.class);
-        addAsset("character/leg/male.png", Texture.class);
-        addAsset("character/torso/female.png", Texture.class);
-        addAsset("character/torso/male.png", Texture.class);
-        addAsset("character/arm/left.png", Texture.class);
-        addAsset("character/arm/right.png", Texture.class);
+        //character
+        bodyPart = "head/";
+        animationType = "standing/";
+        direction = "east/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png",Texture.class);
+        
+        bodyPart = "legs/";
+        animationType = "standing/";
+        direction = "east/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png",Texture.class);
+        
+        bodyPart = "arms/";
+        animationType = "standing/";
+        direction = "east/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png",Texture.class);
+        
+        bodyPart = "torso/";
+        animationType = "standing/";
+        direction = "east/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png",Texture.class);
+        
+        bodyPart = "head/";
+        animationType = "standing/";
+        direction = "south/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png",Texture.class);
         
         //UISkin
         addAsset("skin/composed/skin.json",Skin.class);

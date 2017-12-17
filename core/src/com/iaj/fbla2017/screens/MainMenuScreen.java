@@ -8,6 +8,7 @@ package com.iaj.fbla2017.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -82,6 +83,8 @@ public class MainMenuScreen implements Screen {
                 }
             }
         });
+        
+        
 
         Label text = new Label("The Game", skin);
         menu.row();
@@ -92,12 +95,10 @@ public class MainMenuScreen implements Screen {
         menu.add(exitButton).width(60).height(60).padBottom(10);
         menu.row().height(150 - menu.getHeight());
         menu.add();
-        
 
         table.add(menu);
 
         stage.addActor(table);
-
 
     }
 
@@ -108,8 +109,10 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
+        Color c = Color.TAN;
+        Gdx.gl.glClearColor(c.r, c.g, c.b, c.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         stage.act();
         stage.draw();
 

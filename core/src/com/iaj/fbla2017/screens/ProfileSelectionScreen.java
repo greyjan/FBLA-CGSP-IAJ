@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
+import com.iaj.fbla2017.map.actors.character.player.Player;
 import com.iaj.fbla2017.profiles.ProfilesManager;
 
 /**
@@ -40,6 +41,7 @@ public class ProfileSelectionScreen implements Screen {
 
         profileManager = ProfilesManager.getProfiles();
 
+        
         table = new Table();
         table.setFillParent(true);
 
@@ -48,7 +50,9 @@ public class ProfileSelectionScreen implements Screen {
 
         for (int i = 0; i < profileManager.profiles.size(); i++) {
             TextButton profileButton = new TextButton(profileManager.profiles.get(i).toString(), skin);
-            menu.add(profileButton).width(200).pad(12);
+            Player p = profileManager.profiles.get(i).getPlayer();
+            profileButton.add(p);
+            menu.add(profileButton).width(200).pad(12).height(50);
             menu.row();
         }
 
@@ -68,8 +72,27 @@ public class ProfileSelectionScreen implements Screen {
 
         });
 
+        TextButton backButton;
+        backButton = new TextButton("Back", skin);
+        backButton.addListener(new InputListener() {
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new MainMenuScreen(game));
+            }
+
+        });
+        backButton.setColor(1f, 0.4f, 0.6f, 1f);
+
         menu.add(makeNewProfile).height(60).padBottom(10).width(150);
-        menu.row().height(100 - menu.getHeight());
+        menu.row();
+        menu.add(backButton);
+        menu.row().height(100 - menu.getHeight() - 40);
         menu.add();
         table.add(menu);
         stage.addActor(table);
@@ -83,7 +106,7 @@ public class ProfileSelectionScreen implements Screen {
     @Override
     public void render(float delta) {
         Color c = Color.TAN;
-        Gdx.gl.glClearColor(c.r, c.g,c.b,c.a);
+        Gdx.gl.glClearColor(c.r, c.g, c.b, c.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act();

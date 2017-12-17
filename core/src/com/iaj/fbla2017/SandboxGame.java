@@ -14,7 +14,7 @@ public class SandboxGame extends Game {
 
     public static int WIDTH = 1000;
     public static int HEIGHT = 800;
-    
+
     LoadingScreen loadingScreen;
     public CharacterCustomizationScreen cCScreen;
     public MainMenuScreen mmScreen;
@@ -23,6 +23,8 @@ public class SandboxGame extends Game {
 
     @Override
     public void create() {
+        System.out.println("Creating Game...");
+        System.out.println("Creating Screens...");        
         LoadingScreen loading = new LoadingScreen(this);
         loading.setILoadingListener(new ILoadingListener() {
             @Override
@@ -35,6 +37,7 @@ public class SandboxGame extends Game {
             }
         });
         this.setScreen(loading);
+        Gdx.input.setCursorPosition(WIDTH/2, HEIGHT/2);
     }
 
     @Override

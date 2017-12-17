@@ -6,7 +6,7 @@
 package com.iaj.fbla2017.profiles;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.PixmapIO;
+import com.badlogic.gdx.graphics.Color;
 import com.iaj.fbla2017.map.actors.character.player.Player;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,7 +14,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.iaj.fbla2017.map.actors.character.Character;
 
 /**
  *
@@ -22,17 +21,32 @@ import com.iaj.fbla2017.map.actors.character.Character;
  */
 public class Profile implements Serializable {
 
+    //general
     String name;
-    String gender;
     int age;
-    //Player player;
-    //Player player;
 
-    public Profile(String name, String gender, int age, Player c) {
+    //character
+    String gender;
+    String headShape;
+    String skinColor;
+    transient Player player;
+    
+
+    public Profile(String name, String gender, String headShape, int age, Player c) {
         this.name = name;
         this.gender = gender;
+        this.headShape = headShape;
         this.age = age;
-        //player = c;
+        player = c;
+        skinColor = c.getColor().toString();
+    }
+
+    public String getHeadShape() {
+        return headShape;
+    }
+
+    public String getGender() {
+        return gender;
     }
 
     public void save() {
@@ -43,21 +57,13 @@ public class Profile implements Serializable {
             out = new ObjectOutputStream(fl.write(true));
             out.writeObject(this);
             out.close();
-            System.out.println(fl.file().getAbsolutePath());
         } catch (IOException ex) {
             Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
-
-    public boolean saveCharacterSprites(Character c) {
+        //save player stuff
         FileHandle root = ProfilesManager.saveDir.child(name + "/").child("animations/");
-        boolean isSuccess = true;
-        for (int i = 0; i < c.standingEastAnim.getKeyFrames().length; i++) {
-            FileHandle fl = root.child("standing/").child("east/").child("frame" + i + ".png");
-            PixmapIO.writePNG(fl, c.standingEastAnim.getKeyFrames()[i].getTexture().getTextureData().consumePixmap());
-        }
-        return isSuccess;
+        player.saveSprites(root);
     }
 
     public static Profile load(String name) {
@@ -70,19 +76,37 @@ public class Profile implements Serializable {
 
             p = (Profile) in.readObject();
             in.close();
-            //System.out.println(fl.file().getAbsolutePath());
         } catch (IOException ex) {
-            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Couldnt find save profile: " + name);
         } catch (ClassNotFoundException ex) {
             System.err.println("Class not found error");
         }
-
+        p.player = new Player(0, p.getGender(), p.getHeadShape());
+        p.player.setColor(Color.valueOf(p.getSkinColorValue()));
         return p;
     }
 
     @Override
     public String toString() {
         return "Load Profile \n" + name;
+    }
+
+    
+
+    public String getSkinColorValue() {
+        return skinColor;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
 }

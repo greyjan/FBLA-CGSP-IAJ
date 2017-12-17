@@ -2,12 +2,15 @@ package com.iaj.fbla2017.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.iaj.fbla2017.SandboxGame;
 import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.LevelAssets;
@@ -21,7 +24,7 @@ public class LoadingScreen implements Screen {
     protected SpriteBatch batch;
 
     protected final Stage stage;
-
+    ProgressBar loadingBar;
     Texture background;
 
     public interface ILoadingListener {
@@ -35,15 +38,20 @@ public class LoadingScreen implements Screen {
     private LevelAssets assets = Assets.GetInstance();
 
     public LoadingScreen(SandboxGame game) {
+        System.out.println("Making Loading Screen...");
+        Skin skin = new Skin(Gdx.files.internal("skin/composed/skin.json"));
+        loadingBar = new ProgressBar(0, 1, 0.1f, false, skin);
+        Label label = new Label("Loading...", skin);
+        Table table = new Table();
+        table.setFillParent(true);
+        table.add(label);
+        table.row();
+        table.add(loadingBar);
 
         this.game = game;
 
-        stage = new Stage(new ScreenViewport());
-
-        font = new BitmapFont();
-        font.setColor(Color.BLACK);
-        font.getData().setScale(2);
-        batch = new SpriteBatch();
+        stage = new Stage(new ExtendViewport(SandboxGame.WIDTH / 2, SandboxGame.HEIGHT / 2));
+        stage.addActor(table);
 
         loadListener = new ILoadListener() {
 
@@ -54,7 +62,7 @@ public class LoadingScreen implements Screen {
 
             @Override
             public void OnLoading(float value) {
-
+                loadingBar.setValue(value);
             }
 
             @Override
@@ -70,6 +78,7 @@ public class LoadingScreen implements Screen {
         };
 
         assets.addLoadListener(loadListener);
+        
     }
 
     @Override
@@ -84,12 +93,6 @@ public class LoadingScreen implements Screen {
 
         stage.act(delta);
         stage.draw();
-
-        batch.begin();
-        batch.setColor(Color.BLACK);
-
-        font.draw(batch, "Loading...", Gdx.graphics.getWidth() / 2 - 40, Gdx.graphics.getHeight() / 2 + font.getCapHeight() / 2);
-        batch.end();
     }
 
     @Override
