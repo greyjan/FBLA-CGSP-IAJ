@@ -11,6 +11,7 @@ public class DesktopLauncher {
                 config.width = SandboxGame.WIDTH;
                 config.height = SandboxGame.HEIGHT;
                 config.resizable = false;
+                config.title = "FBLA: The First Year";
 		new LwjglApplication(new SandboxGame(), config);
 	}
 }

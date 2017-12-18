@@ -9,7 +9,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.PixmapIO;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
@@ -17,10 +16,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.map.utils.IsometricActor;
-import com.iaj.fbla2017.profiles.Profile;
-import com.iaj.fbla2017.profiles.ProfilesManager;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -42,6 +38,22 @@ public class Character extends IsometricActor {
     Animation<Sprite> currentAnim;
 
     public Animation<Sprite> standingEastAnim;
+    private Animation<Sprite> standingSouthAnim;
+    private Animation<Sprite> standingNorthAnim;
+    private Animation<Sprite> standingWestAnim;
+
+    public enum Action {
+        STAND, WALK, TURN
+    }
+
+    public enum Direction {
+        NORTH, EAST, SOUTH, WEST;
+
+        public String getPathName() {
+            return this.toString() + "/";
+        }
+
+    }
 
     public enum Gender {
         male, female
@@ -61,6 +73,8 @@ public class Character extends IsometricActor {
     Gender gender;
     HeadShape headShape;
     HairStyle hair;
+    Direction direction;
+    Action currentAction;
 
     public Character(int l) {
         super(l);
@@ -68,8 +82,9 @@ public class Character extends IsometricActor {
         randomize();
         ssb = new SpriteSheetBuilder(this);
         setAllAnims();
+        currentAction = Action.STAND;
         currentAnim = standingEastAnim;
-        setBounds(0, 0, 32, 96);
+        setBounds(0, 0, 32, 80);
     }
 
     public Character(int l, String _gender, String _headShape) {
@@ -77,13 +92,18 @@ public class Character extends IsometricActor {
         gender = Gender.valueOf(_gender);
         headShape = HeadShape.valueOf(_headShape);
         ssb = new SpriteSheetBuilder(this);
+        currentAction = Action.STAND;
         setAllAnims();
         currentAnim = standingEastAnim;
-        this.setBounds(0, 0, 32, 96);
+        this.setBounds(0, 0, 32, 80);
+
     }
 
     private void setAllAnims() {
         standingEastAnim = ssb.getStandingEastAnim();
+        standingSouthAnim = ssb.getStandingSouthAnim();
+        standingNorthAnim = ssb.getStandingNorthAnim();
+        standingWestAnim = ssb.getStandingWestAnim();
     }
 
     private void randomize() {
@@ -91,6 +111,30 @@ public class Character extends IsometricActor {
 
         gender = Gender.values()[rand.nextInt(Gender.values().length)];
         headShape = HeadShape.values()[rand.nextInt(HeadShape.values().length)];
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+        if (currentAction == Action.STAND) {
+            if (null != direction) {
+                switch (direction) {
+                    case EAST:
+                        currentAnim = standingEastAnim;
+                        break;
+                    case SOUTH:
+                        currentAnim = standingSouthAnim;
+                        break;
+                    case NORTH:
+                        currentAnim = standingNorthAnim;
+                        break;
+                    case WEST:
+                        currentAnim = standingWestAnim;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 
     @Override
@@ -147,6 +191,17 @@ public class Character extends IsometricActor {
 
     public HeadShape getHeadShape() {
         return headShape;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = Direction.valueOf(direction);
+    }
+    public void setDirection(Direction d) {
+        this.direction = d;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 
 }

@@ -31,6 +31,9 @@ public class SpriteSheetBuilder {
     private Gender gender;
 
     private Animation<Sprite> standingEastAnim;
+    private Animation<Sprite> standingSouthAnim;
+    private Animation<Sprite> standingNorthAnim;
+    private Animation<Sprite> standingWestAnim;
 
     public SpriteSheetBuilder(Character c) {
         gender = c.getGender();
@@ -39,10 +42,28 @@ public class SpriteSheetBuilder {
         ////east
         Sprite f1 = buildSprite("standing/", "east/", "frame0");
         standingEastAnim = new Animation<Sprite>(0.25f, f1);
+        f1 = buildSprite("standing/", "south/", "frame0");
+        standingSouthAnim = new Animation<Sprite>(0.25f, f1);
+        f1 = buildSprite("standing/", "north/", "frame0");
+        standingNorthAnim = new Animation<Sprite>(0.25f, f1);
+        f1 = buildSprite("standing/", "west/", "frame0");
+        standingWestAnim = new Animation<Sprite>(0.25f, f1);
+    }
+
+    public Animation<Sprite> getStandingWestAnim() {
+        return standingWestAnim;
+    }
+
+    public Animation<Sprite> getStandingNorthAnim() {
+        return standingNorthAnim;
     }
 
     public Animation<Sprite> getStandingEastAnim() {
         return standingEastAnim;
+    }
+
+    public Animation<Sprite> getStandingSouthAnim() {
+        return standingSouthAnim;
     }
 
     private Sprite buildSprite(String animationType, String direction, String frame) {
@@ -55,29 +76,41 @@ public class SpriteSheetBuilder {
         Texture larm = (Texture) Assets.GetInstance().get(Character.PATH + "arms/" + animationType + direction + "left/" + frame + ".png");
         Texture rarm = (Texture) Assets.GetInstance().get(Character.PATH + "arms/" + animationType + direction + "right/" + frame + ".png");
 
-        
-        
         Pixmap h = getPixmap(head);
         Pixmap t = getPixmap(torso);
         Pixmap l = getPixmap(legs);
         Pixmap la = getPixmap(larm);
         Pixmap ra = getPixmap(rarm);
 
-        Pixmap p = new Pixmap(32, 96, Pixmap.Format.RGBA8888);
+        Pixmap p = new Pixmap(32, 80, Pixmap.Format.RGBA8888);
         //p.setBlending(Pixmap.Blending.None); 
         p.setColor(Color.TAN);
-        
+
         p.drawPixmap(l, 0, 16 + 32 - 9);
-        p.drawPixmap(la, 0, 16);
-        p.drawPixmap(t, 0, 16);
-        p.drawPixmap(ra, 0, 16);
+        if (direction.equals("south/")) {
+            p.drawPixmap(ra, 0, 17);
+            p.drawPixmap(t, 0, 16);
+            p.drawPixmap(la, -1, 16);
+        } else if (direction.equals("north/")) {
+            p.drawPixmap(la, 0, 17);
+            p.drawPixmap(t, 0, 16);
+            p.drawPixmap(ra, -1, 16);
+        } else if (direction.equals("west/")) {
+            p.drawPixmap(ra, 0, 17);
+            p.drawPixmap(t, 0, 16);
+            p.drawPixmap(la, 0, 16);
+        } else {
+            p.drawPixmap(la, 0, 16);
+            p.drawPixmap(t, 0, 16);
+            p.drawPixmap(ra, 0, 16);
+        }
+
         p.drawPixmap(h, 0, 0);
-        
+
         p.setColor(Color.WHITE.cpy().fromHsv(38, .13f, .89f));
         p.setBlending(Pixmap.Blending.None);
-        
-        //p.fillRectangle(0, 0, p.getWidth(), p.getHeight());
 
+        //p.fillRectangle(0, 0, p.getWidth(), p.getHeight());
         //p.drawPixmap(p, 0, 0);
         Texture texture = new Texture(p);
         sprite = new Sprite(texture);

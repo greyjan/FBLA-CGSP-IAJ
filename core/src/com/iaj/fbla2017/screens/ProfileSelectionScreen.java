@@ -17,6 +17,7 @@ import com.iaj.fbla2017.assets.Assets;
 import com.iaj.fbla2017.assets.UISkin.NotebookPaperTable;
 import com.iaj.fbla2017.map.actors.character.player.Player;
 import com.iaj.fbla2017.profiles.ProfilesManager;
+import com.iaj.fbla2017.test.TestRoomScreen;
 
 /**
  *
@@ -41,7 +42,6 @@ public class ProfileSelectionScreen implements Screen {
 
         profileManager = ProfilesManager.getProfiles();
 
-        
         table = new Table();
         table.setFillParent(true);
 
@@ -50,8 +50,19 @@ public class ProfileSelectionScreen implements Screen {
 
         for (int i = 0; i < profileManager.profiles.size(); i++) {
             TextButton profileButton = new TextButton(profileManager.profiles.get(i).toString(), skin);
-            Player p = profileManager.profiles.get(i).getPlayer();
+            final Player p = profileManager.profiles.get(i).getPlayer();
             profileButton.add(p);
+            profileButton.addListener(new InputListener() {
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    return true;
+                }
+
+                @Override
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    game.setScreen(new TestRoomScreen(game,p));
+                }
+            });
             menu.add(profileButton).width(200).pad(12).height(50);
             menu.row();
         }

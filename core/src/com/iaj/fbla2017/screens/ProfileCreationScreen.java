@@ -149,7 +149,7 @@ public class ProfileCreationScreen implements Screen {
             }
         });
 
-        skinColorSlider = new Slider(0, 1, 0.1f, false, skin);
+        skinColorSlider = new Slider(0, 1, 0.01f, false, skin);
         skinColorSlider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
@@ -157,6 +157,7 @@ public class ProfileCreationScreen implements Screen {
                 newPlayer.setColor(skinColor);
             }
         });
+        
 
         makeProfile = new TextButton("Make Profile", skin);
         makeProfile.addListener(new InputListener() {

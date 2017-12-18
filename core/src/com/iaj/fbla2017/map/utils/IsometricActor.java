@@ -6,6 +6,7 @@
 package com.iaj.fbla2017.map.utils;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import java.util.Comparator;
 
 /**
  *
@@ -19,6 +20,17 @@ public abstract class IsometricActor extends Actor implements IsometricPositioni
 
     public IsometricActor(int l) {
         layer = l;
+        isoX = 0;
+        isoY = 0;
+        setToPosition();
+    }
+    
+    public IsometricActor(int l, float isoX, float isoY) {
+        layer = l;
+        this.isoX = isoX;
+        this.isoY = isoY;
+        setToPosition();
+        setOffsetX(-16);
     }
 
     public int getLayer() {
@@ -55,6 +67,7 @@ public abstract class IsometricActor extends Actor implements IsometricPositioni
     public void moveIsoBy(float vx, float vy) {
         isoX += vx;
         isoY += vy;
+        setToPosition();
     }
 
     public int getOffsetX() {
@@ -73,16 +86,38 @@ public abstract class IsometricActor extends Actor implements IsometricPositioni
         this.offsetY = offsetY;
     }
 
+    public void setToPosition() {
+        float x = (getIsoX() - getIsoY()) / 2 * 32;
+        float y = -((getIsoX() + getIsoY()) * 16 / 2);
+        setPosition(x + getOffsetX(), y + getOffsetY());
+    }
+    
     @Override
     public int compareTo(IsometricActor t) {
-        if(t.getIsoY() < this.getIsoY()) 
-            return 1;
-        else if(t.getIsoY() > this.getIsoY()) {
+        if (t.getIsoY() < this.getIsoY()) {
             return -1;
-        }
-        else 
+        } else if (t.getIsoY() > this.getIsoY()) {
+            return 1;
+        } else {
             return 0;
+        }
     }
 
-    
+    public static class IsometricComparatorByPosition implements Comparator<IsometricActor> {
+
+        @Override
+        public int compare(IsometricActor t, IsometricActor t1) {
+            if (t.getIsoY() < t1.getIsoY()) {
+                return 1;
+            } else if (t.getIsoY() > t1.getIsoY()) {
+                return -1;
+            } else if (t.getIsoX() < t1.getIsoX()) {
+                return -1;
+            } else if (t.getIsoX() > t1.getIsoX()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
 }

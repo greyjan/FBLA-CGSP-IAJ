@@ -5,8 +5,7 @@
  * Proprietary and confidential
  * Written by Mirco Timmermann <mtimmermann@gmx.de>, December 2016
  *
- * game file
- ******************************************************
+ * game file *****************************************************
  */
 package com.iaj.fbla2017.assets;
 
@@ -26,9 +25,9 @@ public class Assets extends LevelAssets {
     private static Assets INSTANCE = null;
 
     private Assets() {
-        
+
         addAsset("player/person.png", Texture.class);
-        
+
         //paper
         addAsset("skin/paper.png", Texture.class);
         addAsset("skin/paperMargin.png", Texture.class);
@@ -36,49 +35,119 @@ public class Assets extends LevelAssets {
         String bodyPart;
         String animationType;
         String direction;
-        
+
         //character
         bodyPart = "head/";
         animationType = "standing/";
         direction = "east/";
-        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png",Texture.class);
-        
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png", Texture.class);
+
         bodyPart = "legs/";
         animationType = "standing/";
         direction = "east/";
-        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png",Texture.class);
-        
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
         bodyPart = "arms/";
         animationType = "standing/";
         direction = "east/";
-        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png",Texture.class);
-        
+        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png", Texture.class);
+
         bodyPart = "torso/";
         animationType = "standing/";
         direction = "east/";
-        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png",Texture.class);
-        
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
         bodyPart = "head/";
         animationType = "standing/";
         direction = "south/";
-        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png",Texture.class);
-        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png",Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png", Texture.class);
+
+        bodyPart = "legs/";
+        animationType = "standing/";
+        direction = "south/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
+        bodyPart = "arms/";
+        animationType = "standing/";
+        direction = "south/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png", Texture.class);
+
+        bodyPart = "torso/";
+        animationType = "standing/";
+        direction = "south/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
+        bodyPart = "head/";
+        animationType = "standing/";
+        direction = "north/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png", Texture.class);
+
+        bodyPart = "legs/";
+        animationType = "standing/";
+        direction = "north/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
+        bodyPart = "arms/";
+        animationType = "standing/";
+        direction = "north/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png", Texture.class);
+
+        bodyPart = "torso/";
+        animationType = "standing/";
+        direction = "north/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
+        bodyPart = "head/";
+        animationType = "standing/";
+        direction = "west/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "pointed/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "round/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "wide/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "square/frame0.png", Texture.class);
+
+        bodyPart = "legs/";
+        animationType = "standing/";
+        direction = "west/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+        
+        bodyPart = "arms/";
+        animationType = "standing/";
+        direction = "west/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "left/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "right/frame0.png", Texture.class);
+        
+        bodyPart = "torso/";
+        animationType = "standing/";
+        direction = "west/";
+        addAsset(Character.PATH + bodyPart + animationType + direction + "female/frame0.png", Texture.class);
+        addAsset(Character.PATH + bodyPart + animationType + direction + "male/frame0.png", Texture.class);
+
         
         //UISkin
-        addAsset("skin/composed/skin.json",Skin.class);
+        addAsset("skin/composed/skin.json", Skin.class);
         //addAsset("skin/",Texture.class);
-        
+
         //maps
         //addAsset("map/school/schoolRooms/test.tmx",TiledMap.class);
-        
         //furnature
         addAsset("map/school/schoolFurniture/smallDeskWest.png", Texture.class);
         addAsset(Furniture.FURNITURE_PATH + "wall.png", Texture.class);
@@ -92,7 +161,8 @@ public class Assets extends LevelAssets {
         addAsset(Furniture.FURNITURE_PATH + "tableLeftNorth.png", Texture.class);
         addAsset(Furniture.FURNITURE_PATH + "tableCenterNorth.png", Texture.class);
         addAsset(Furniture.FURNITURE_PATH + "tableCenterWest.png", Texture.class);
-        
+        addAsset(Furniture.FURNITURE_PATH + "carpet.png", Texture.class);
+
         /*
 		Texture.class
 		Sound.class
